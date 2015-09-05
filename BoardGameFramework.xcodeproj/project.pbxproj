@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		794CDA101B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h in Headers */ = {isa = PBXBuildFile; fileRef = 794CDA0E1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h */; };
+		794CDA111B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CDA0F1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m */; };
 		79E7A9AC1B3E29FF00416595 /* BoardGameFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 79E7A9AB1B3E29FF00416595 /* BoardGameFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79E7A9B21B3E2A0000416595 /* BoardGameFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E7A9A61B3E29FF00416595 /* BoardGameFramework.framework */; };
 		79E7A9B91B3E2A0000416595 /* BoardGameFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E7A9B81B3E2A0000416595 /* BoardGameFrameworkTests.m */; };
@@ -68,6 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		794CDA0E1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIView_ViewAtPointDetection.h"; sourceTree = "<group>"; };
+		794CDA0F1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIView_ViewAtPointDetection.m"; sourceTree = "<group>"; };
 		79E7A9A61B3E29FF00416595 /* BoardGameFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoardGameFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E7A9AA1B3E29FF00416595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79E7A9AB1B3E29FF00416595 /* BoardGameFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardGameFramework.h; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 				79E7A9DC1B3F760B00416595 /* Dice.m */,
 				79E7A9DD1B3F760B00416595 /* DraggableView.h */,
 				79E7A9DE1B3F760B00416595 /* DraggableView.m */,
+				794CDA0E1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h */,
+				794CDA0F1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m */,
 				79E7A9DF1B3F760B00416595 /* Hand.h */,
 				79E7A9E01B3F760B00416595 /* Hand.m */,
 				79E7A9E11B3F760B00416595 /* Hexagon.h */,
@@ -263,6 +269,7 @@
 				79E7AA011B3F760B00416595 /* BoardGameLibrary.h in Headers */,
 				79E7AA121B3F760B00416595 /* NumberView.h in Headers */,
 				79E7A9F11B3F760B00416595 /* BGCollection.h in Headers */,
+				794CDA101B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h in Headers */,
 				79E7A9F51B3F760B00416595 /* BGItem.h in Headers */,
 				79E7AA141B3F760B00416595 /* Player.h in Headers */,
 				79E7A9FF1B3F760B00416595 /* Board.h in Headers */,
@@ -378,6 +385,7 @@
 				79E7AA551B4491AB00416595 /* SlotViewCollectionView.m in Sources */,
 				79E7A9F41B3F760B00416595 /* BGCost.m in Sources */,
 				79E7AA0F1B3F760B00416595 /* Hexagon.m in Sources */,
+				794CDA111B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m in Sources */,
 				79E7A9FE1B3F760B00416595 /* BGTrade.m in Sources */,
 				79E7AA131B3F760B00416595 /* NumberView.m in Sources */,
 				79E7AA091B3F760B00416595 /* Dice.m in Sources */,

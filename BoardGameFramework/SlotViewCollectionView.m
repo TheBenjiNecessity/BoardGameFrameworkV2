@@ -8,9 +8,53 @@
 
 #import "SlotViewCollectionView.h"
 
+struct BGIndices {
+    int row;
+    int column;
+};
+typedef struct BGIndices BGIndices;
+
+BGIndices BGIndicesMake(int row, int column)
+{
+    BGIndices indices; indices.row = row; indices.column = column; return indices;
+}
+
 @implementation SlotViewCollectionView
 @synthesize quadTree;
 @synthesize selectedSlotview;
+@synthesize rows;
+
+- (void)insertSlotView:(SlotView *)slotView {
+    if (!rows || [rows count] <= 0) {
+        rows = [[NSMutableArray alloc] initWithCapacity:NUMBER_OF_SLOTS_HIGH];
+        for (int i = 0; i < NUMBER_OF_SLOTS_HIGH; i++) {
+            NSMutableArray *column = [rows objectAtIndex:i];
+            column = [[NSMutableArray alloc] initWithCapacity:NUMBER_OF_SLOTS_WIDE];
+        }
+    }
+    
+    BGIndices indices = [self getIndicesAtPoint:slotView.frame.origin];
+    NSMutableArray *column1 = [rows objectAtIndex:indices.row];
+    NSMutableArray *column2 = [rows objectAtIndex:indices.row];
+    NSMutableArray *objects = [column1 objectAtIndex:indices.column];
+    if (!objects) {
+        objects = [[NSMutableArray alloc] init];
+    }
+    
+    [objects addObject:slotView];
+}
+
+- (SlotView *)objectAtPoint:(CGPoint)point {
+    BGIndices indices = [self getIndicesAtPoint:point];
+    NSMutableArray *column = [rows objectAtIndex:indices.row];
+    for (SlotView *object in [column objectAtIndex:indices.column]) {
+        if (CGRectContainsPoint(object.frame, point)) {
+            return object;
+        }
+    }
+    
+    return nil;
+}
 
 - (void)insertIntoQuadTreeSlotView:(SlotView *)slotView {
    if (!quadTree) {
@@ -18,6 +62,14 @@
    }
    
    [quadTree insertSlotView:slotView];
+}
+
+- (BGIndices)getIndicesAtPoint:(CGPoint)point {
+    CGFloat widthOfBox = self.bounds.size.width / NUMBER_OF_SLOTS_WIDE;
+    CGFloat heightOfBox = self.bounds.size.height / NUMBER_OF_SLOTS_HIGH;
+    int row = (int)(point.y / heightOfBox);
+    int column = (int)(point.x / widthOfBox);
+    return BGIndicesMake(row, column);
 }
 
 - (void)highlightSlotviewAtPoint: (CGPoint)point {
@@ -37,25 +89,5 @@
       }
    }
 }
-
-- (void)didMoveToSuperview {
-   [quadTree printTree:@"" last:YES];
-   NSDate *methodStart = [NSDate date];
-   for (int i = 0; i < 1000; i++)
-      [quadTree testPoint:CGPointMake(220.0, 110.0)];
-   
-   NSDate *methodFinish = [NSDate date];
-   
-   NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:methodStart];
-   NSLog(@"executionTime = %f", (executionTime * 1000));
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end
