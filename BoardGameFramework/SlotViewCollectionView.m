@@ -24,6 +24,13 @@ BGIndices BGIndicesMake(int row, int column)
 @synthesize selectedSlotview;
 @synthesize rows;
 
+- (id)initWithFrame:(CGRect)frame {
+    if ((self = [super initWithFrame:frame])) {
+
+    }
+    return self;
+}
+
 - (void)insertSlotView:(SlotView *)slotView {
     if (!rows || [rows count] <= 0) {
         rows = [[NSMutableArray alloc] initWithCapacity:NUMBER_OF_SLOTS_HIGH];
@@ -34,8 +41,7 @@ BGIndices BGIndicesMake(int row, int column)
     }
     
     BGIndices indices = [self getIndicesAtPoint:slotView.frame.origin];
-    NSMutableArray *column1 = [rows objectAtIndex:indices.row];
-    NSMutableArray *column2 = [rows objectAtIndex:indices.row];
+
     NSMutableArray *objects = [column1 objectAtIndex:indices.column];
     if (!objects) {
         objects = [[NSMutableArray alloc] init];
