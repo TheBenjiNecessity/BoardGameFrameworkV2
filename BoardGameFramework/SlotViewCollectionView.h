@@ -6,30 +6,19 @@
 //  Copyright (c) 2015 Benjamin Wishart. All rights reserved.
 //
 
-#define NUMBER_OF_SLOTS_WIDE        10
-#define NUMBER_OF_SLOTS_HIGH        7
-
-#define MAX_BOX_HEIGHT              60
-#define MAX_BOX_WIDTH               80
-
-#define MIN_BOX_HEIGHT              30
-#define MIN_BOX_WIDTH               40
+#define BOX_DIM              30
 
 #import <UIKit/UIKit.h>
-
-#import "QuadTree.h"
+#import "SlotView.h"
 
 @interface SlotViewCollectionView : UIView
-{
-    CGSize boxSize;
-}
+
+@property (nonatomic, readonly) int numberOfSlotsHigh;
+@property (nonatomic, readonly) int numberOfSlotsWide;
 
 @property (nonatomic) NSMutableArray *rows;
 
-@property (nonatomic) QuadTree *quadTree;
-@property (nonatomic) SlotView *selectedSlotview;
-
-- (void)insertIntoQuadTreeSlotView:(SlotView *)slotView;
-- (void)highlightSlotviewAtPoint: (CGPoint)point;
+- (void)insertSlotView:(SlotView *)slotView;
+- (SlotView *)slotViewAtPoint:(CGPoint)point;
 
 @end
