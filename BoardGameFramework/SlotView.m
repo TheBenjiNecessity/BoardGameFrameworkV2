@@ -7,8 +7,7 @@
 //
 
 #import "SlotView.h"
-#import "QuadTreeView.h"
-
+#import "SlotViewCollectionView.h"
 
 @implementation SlotView
 
@@ -20,19 +19,19 @@
 }
 
 - (void)didMoveToSuperview {
-   if ([self.superview isKindOfClass:[QuadTreeView class]]) {
-      [(QuadTreeView *)self.superview insertIntoQuadTreeSlotView:self];
+   if ([self.superview isKindOfClass:[SlotViewCollectionView class]]) {
+      [(SlotViewCollectionView *)self.superview insertSlotView:self];
    } else {
       [NSException raise:@"Invalid SlotView Placement"
                   format:@"%@s can only be placed inside of %@.",
        NSStringFromClass([SlotView class]),
-       NSStringFromClass([QuadTreeView class])];
+       NSStringFromClass([SlotViewCollectionView class])];
    }
 }
 
 - (void)slotViewIsHighlighted:(BOOL)highlighted {
    if (highlighted) {
-      self.layer.borderColor = [UIColor blackColor].CGColor;
+      self.layer.borderColor = [UIColor redColor].CGColor;
       self.layer.borderWidth = 1.0;
    } else {
       self.layer.borderColor = [UIColor clearColor].CGColor;

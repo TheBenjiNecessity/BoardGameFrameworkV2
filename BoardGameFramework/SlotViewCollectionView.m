@@ -20,9 +20,15 @@ BGIndices BGIndicesMake(int row, int column)
 }
 
 @implementation SlotViewCollectionView
-@synthesize quadTree;
-@synthesize selectedSlotview;
 @synthesize rows;
+
+- (int)numberOfSlotsHigh {
+    return (int)ceilf(self.frame.size.height / BOX_DIM);
+}
+
+- (int)numberOfSlotsWide {
+    return (int)ceilf(self.frame.size.width / BOX_DIM);
+}
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
@@ -32,68 +38,49 @@ BGIndices BGIndicesMake(int row, int column)
 }
 
 - (void)insertSlotView:(SlotView *)slotView {
-    if (!rows || [rows count] <= 0) {
-        rows = [[NSMutableArray alloc] initWithCapacity:NUMBER_OF_SLOTS_HIGH];
-        for (int i = 0; i < NUMBER_OF_SLOTS_HIGH; i++) {
-            NSMutableArray *column = [rows objectAtIndex:i];
-            column = [[NSMutableArray alloc] initWithCapacity:NUMBER_OF_SLOTS_WIDE];
+    if (![rows count]) {
+        rows = [[NSMutableArray alloc] initWithCapacity:[self numberOfSlotsHigh]];
+        for (int i = 0; i < [self numberOfSlotsHigh]; i++) {
+            NSMutableArray *column = [[NSMutableArray alloc] initWithCapacity:[self numberOfSlotsWide]];
+            for (int j = 0; j < [self numberOfSlotsWide]; j++) {
+                NSMutableArray *slotviews = [[NSMutableArray alloc] init];
+                [column addObject:slotviews];
+            }
+            [rows addObject:column];
+            
         }
     }
     
-    BGIndices indices = [self getIndicesAtPoint:slotView.frame.origin];
-
-    NSMutableArray *objects = [column1 objectAtIndex:indices.column];
-    if (!objects) {
-        objects = [[NSMutableArray alloc] init];
+    for (int x = slotView.frame.origin.x; x - BOX_DIM <= slotView.frame.origin.x + slotView.frame.size.width; x += BOX_DIM) {
+        for (int y = slotView.frame.origin.y; y - BOX_DIM <= slotView.frame.origin.y + slotView.frame.size.height; y += BOX_DIM) {
+            BGIndices indices = [self getIndicesAtPoint:CGPointMake(x, y)];
+            
+            NSMutableArray *row = [rows objectAtIndex:indices.row];
+            NSMutableArray *column = [row objectAtIndex:indices.column];
+            
+            [column addObject:slotView];
+        }
     }
-    
-    [objects addObject:slotView];
 }
 
-- (SlotView *)objectAtPoint:(CGPoint)point {
+- (SlotView *)slotViewAtPoint:(CGPoint)point {
     BGIndices indices = [self getIndicesAtPoint:point];
-    NSMutableArray *column = [rows objectAtIndex:indices.row];
-    for (SlotView *object in [column objectAtIndex:indices.column]) {
-        if (CGRectContainsPoint(object.frame, point)) {
-            return object;
+    NSMutableArray *row = [rows objectAtIndex:indices.row];
+    NSMutableArray *column = [row objectAtIndex:indices.column];
+    
+    for (SlotView *slotView in column) {
+        if (CGRectContainsPoint(slotView.frame, point)) {
+            return slotView;
         }
     }
     
     return nil;
 }
 
-- (void)insertIntoQuadTreeSlotView:(SlotView *)slotView {
-   if (!quadTree) {
-      quadTree = [[QuadTree alloc] initWithCurrentLevel:0 bounds:self.bounds];
-   }
-   
-   [quadTree insertSlotView:slotView];
-}
-
 - (BGIndices)getIndicesAtPoint:(CGPoint)point {
-    CGFloat widthOfBox = self.bounds.size.width / NUMBER_OF_SLOTS_WIDE;
-    CGFloat heightOfBox = self.bounds.size.height / NUMBER_OF_SLOTS_HIGH;
-    int row = (int)(point.y / heightOfBox);
-    int column = (int)(point.x / widthOfBox);
+    int row = floorf(point.y / BOX_DIM);
+    int column = floorf(point.x / BOX_DIM);
     return BGIndicesMake(row, column);
-}
-
-- (void)highlightSlotviewAtPoint: (CGPoint)point {
-   if (!CGRectContainsPoint(selectedSlotview.frame, point)) {
-      if (selectedSlotview) {
-         [selectedSlotview slotViewIsHighlighted:NO];
-         selectedSlotview = nil;
-      }
-      
-      NSArray *objects = [quadTree objectsAtPoint:point];
-      
-      for (SlotView *slotview in objects) {
-         if (CGRectContainsPoint(slotview.frame, point)) {
-            [slotview slotViewIsHighlighted:YES];
-            selectedSlotview = slotview;
-         }
-      }
-   }
 }
 
 @end
