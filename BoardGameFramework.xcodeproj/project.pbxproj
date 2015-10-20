@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		793175491BCDF7C400023CD6 /* BGScrollingHandView.h in Headers */ = {isa = PBXBuildFile; fileRef = 793175471BCDF7C400023CD6 /* BGScrollingHandView.h */; settings = {ASSET_TAGS = (); }; };
+		7931754A1BCDF7C400023CD6 /* BGScrollingHandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 793175481BCDF7C400023CD6 /* BGScrollingHandView.m */; settings = {ASSET_TAGS = (); }; };
+		7931754D1BCDF99000023CD6 /* BGFannedHandView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7931754B1BCDF99000023CD6 /* BGFannedHandView.h */; settings = {ASSET_TAGS = (); }; };
+		7931754E1BCDF99000023CD6 /* BGFannedHandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7931754C1BCDF99000023CD6 /* BGFannedHandView.m */; settings = {ASSET_TAGS = (); }; };
 		794CDA101B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h in Headers */ = {isa = PBXBuildFile; fileRef = 794CDA0E1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h */; };
 		794CDA111B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CDA0F1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m */; };
+		795017C21BC871DD00E24C2C /* BGHandView.h in Headers */ = {isa = PBXBuildFile; fileRef = 795017C01BC871DD00E24C2C /* BGHandView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79E7A9AC1B3E29FF00416595 /* BoardGameFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 79E7A9AB1B3E29FF00416595 /* BoardGameFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79E7A9B21B3E2A0000416595 /* BoardGameFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E7A9A61B3E29FF00416595 /* BoardGameFramework.framework */; };
 		79E7A9B91B3E2A0000416595 /* BoardGameFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E7A9B81B3E2A0000416595 /* BoardGameFrameworkTests.m */; };
@@ -70,8 +75,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		793175471BCDF7C400023CD6 /* BGScrollingHandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGScrollingHandView.h; sourceTree = "<group>"; };
+		793175481BCDF7C400023CD6 /* BGScrollingHandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGScrollingHandView.m; sourceTree = "<group>"; };
+		7931754B1BCDF99000023CD6 /* BGFannedHandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGFannedHandView.h; sourceTree = "<group>"; };
+		7931754C1BCDF99000023CD6 /* BGFannedHandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGFannedHandView.m; sourceTree = "<group>"; };
 		794CDA0E1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIView_ViewAtPointDetection.h"; sourceTree = "<group>"; };
 		794CDA0F1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIView_ViewAtPointDetection.m"; sourceTree = "<group>"; };
+		795017C01BC871DD00E24C2C /* BGHandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGHandView.h; sourceTree = "<group>"; };
 		79E7A9A61B3E29FF00416595 /* BoardGameFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoardGameFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E7A9AA1B3E29FF00416595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79E7A9AB1B3E29FF00416595 /* BoardGameFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardGameFramework.h; sourceTree = "<group>"; };
@@ -199,6 +209,11 @@
 				794CDA0F1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m */,
 				79E7A9DF1B3F760B00416595 /* Hand.h */,
 				79E7A9E01B3F760B00416595 /* Hand.m */,
+				795017C01BC871DD00E24C2C /* BGHandView.h */,
+				793175471BCDF7C400023CD6 /* BGScrollingHandView.h */,
+				793175481BCDF7C400023CD6 /* BGScrollingHandView.m */,
+				7931754B1BCDF99000023CD6 /* BGFannedHandView.h */,
+				7931754C1BCDF99000023CD6 /* BGFannedHandView.m */,
 				79E7A9E11B3F760B00416595 /* Hexagon.h */,
 				79E7A9E21B3F760B00416595 /* Hexagon.m */,
 				79E7A9E31B3F760B00416595 /* HexagonView.h */,
@@ -263,11 +278,14 @@
 				79E7AA161B3F760B00416595 /* QuadTree.h in Headers */,
 				79E7A9FB1B3F760B00416595 /* BGReward.h in Headers */,
 				79E7AA041B3F760B00416595 /* CardView.h in Headers */,
+				7931754D1BCDF99000023CD6 /* BGFannedHandView.h in Headers */,
 				79E7A9F61B3F760B00416595 /* BGPiece.h in Headers */,
 				79E7A9EF1B3F760B00416595 /* BGBoardView.h in Headers */,
 				79E7A9FD1B3F760B00416595 /* BGTrade.h in Headers */,
 				79E7AA011B3F760B00416595 /* BoardGameLibrary.h in Headers */,
+				795017C21BC871DD00E24C2C /* BGHandView.h in Headers */,
 				79E7AA121B3F760B00416595 /* NumberView.h in Headers */,
+				793175491BCDF7C400023CD6 /* BGScrollingHandView.h in Headers */,
 				79E7A9F11B3F760B00416595 /* BGCollection.h in Headers */,
 				794CDA101B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h in Headers */,
 				79E7A9F51B3F760B00416595 /* BGItem.h in Headers */,
@@ -329,6 +347,7 @@
 				TargetAttributes = {
 					79E7A9A51B3E29FF00416595 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 5B745E2Q5N;
 					};
 					79E7A9B01B3E2A0000416595 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -379,9 +398,11 @@
 				79E7AA0B1B3F760B00416595 /* DraggableView.m in Sources */,
 				79E7A9F21B3F760B00416595 /* BGCollection.m in Sources */,
 				79E7A9FC1B3F760B00416595 /* BGReward.m in Sources */,
+				7931754A1BCDF7C400023CD6 /* BGScrollingHandView.m in Sources */,
 				79E7AA051B3F760B00416595 /* CardView.m in Sources */,
 				79E7AA001B3F760B00416595 /* Board.m in Sources */,
 				79E7AA171B3F760B00416595 /* QuadTree.m in Sources */,
+				7931754E1BCDF99000023CD6 /* BGFannedHandView.m in Sources */,
 				79E7AA551B4491AB00416595 /* SlotViewCollectionView.m in Sources */,
 				79E7A9F41B3F760B00416595 /* BGCost.m in Sources */,
 				79E7AA0F1B3F760B00416595 /* Hexagon.m in Sources */,
@@ -510,14 +531,18 @@
 		79E7A9BD1B3E2A0000416595 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BoardGameFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -525,14 +550,18 @@
 		79E7A9BE1B3E2A0000416595 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BoardGameFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
