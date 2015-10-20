@@ -19,6 +19,12 @@
    [super viewDidLoad];
    // Do any additional setup after loading the view, typically from a nib.
    [card setDelegate:self];
+    card.willDragAfterLongPress = NO;
+    BGHandView *handView = [[BGHandView alloc] initWithFrame:CGRectMake(10.0, 400.0, 90.0 * 5 + 10, 170.0) pagingEnabled:NO];
+    handView.backgroundColor = [UIColor darkGrayColor];
+    handView.center = CGPointMake(self.view.frame.size.height - (handView.frame.size.height + 10), self.view.center.y);
+    [self.view addSubview:handView];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,14 +41,14 @@
 }
 
 - (void) view:(UIView *)view isDraggingWithGestureRecognizer:(UIPanGestureRecognizer *)recognizer {
-   QuadTreeView *qvt = (QuadTreeView *)self.view;
-   CGPoint translationPoint = [recognizer translationInView:qvt];
-   CGFloat x = recognizer.view.center.x + translationPoint.x;
-   CGFloat y = recognizer.view.center.y + translationPoint.y;
-   CGPoint newCenterPoint = CGPointMake(x, y);
-   NSLog(@"translationPoint: %f %f", translationPoint.x, translationPoint.y);
-   [qvt highlightSlotviewAtPoint:newCenterPoint];
-   
+    SlotViewCollectionView *svcv = (SlotViewCollectionView *)self.view;
+    CGPoint translationPoint = [recognizer translationInView:svcv];
+    CGFloat x = recognizer.view.center.x + translationPoint.x;
+    CGFloat y = recognizer.view.center.y + translationPoint.y;
+    CGPoint newCenterPoint = CGPointMake(x, y);
+    
+    SlotView *currentSlotView = [svcv slotViewAtPoint:newCenterPoint];
+    [currentSlotView slotViewIsHighlighted:YES];
    /*
     [recognizer locationInView:self.view] = coordinates of finger
     

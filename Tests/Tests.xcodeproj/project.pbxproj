@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7901F0571BC8AE6000FD8915 /* BoardGameFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7901F0561BC8AE6000FD8915 /* BoardGameFramework.framework */; };
+		7901F0581BC8AE6000FD8915 /* BoardGameFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7901F0561BC8AE6000FD8915 /* BoardGameFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		79E7AA2B1B3F8DFF00416595 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E7AA2A1B3F8DFF00416595 /* main.m */; };
 		79E7AA2E1B3F8DFF00416595 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E7AA2D1B3F8DFF00416595 /* AppDelegate.m */; };
 		79E7AA311B3F8DFF00416595 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E7AA301B3F8DFF00416595 /* ViewController.m */; };
@@ -14,7 +16,6 @@
 		79E7AA361B3F8DFF00416595 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79E7AA351B3F8DFF00416595 /* Images.xcassets */; };
 		79E7AA391B3F8DFF00416595 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E7AA371B3F8DFF00416595 /* LaunchScreen.xib */; };
 		79E7AA451B3F8DFF00416595 /* TestsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E7AA441B3F8DFF00416595 /* TestsTests.m */; };
-		79E7AA4F1B3F8E2400416595 /* BoardGameFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E7AA4E1B3F8E2400416595 /* BoardGameFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,7 +28,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7901F0591BC8AE6000FD8915 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7901F0581BC8AE6000FD8915 /* BoardGameFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		7901F0561BC8AE6000FD8915 /* BoardGameFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = BoardGameFramework.framework; path = "/Users/benjaminwishart/Library/Developer/Xcode/DerivedData/BoardGameWorkspace-dkfffpfxikhdzzgaosncrmiopzwp/Build/Products/Debug-iphoneos/BoardGameFramework.framework"; sourceTree = "<absolute>"; };
 		79E7AA251B3F8DFF00416595 /* Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E7AA291B3F8DFF00416595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79E7AA2A1B3F8DFF00416595 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -49,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79E7AA4F1B3F8E2400416595 /* BoardGameFramework.framework in Frameworks */,
+				7901F0571BC8AE6000FD8915 /* BoardGameFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +82,7 @@
 		79E7AA1C1B3F8DFF00416595 = {
 			isa = PBXGroup;
 			children = (
+				7901F0561BC8AE6000FD8915 /* BoardGameFramework.framework */,
 				79E7AA4E1B3F8E2400416595 /* BoardGameFramework.framework */,
 				79E7AA271B3F8DFF00416595 /* Tests */,
 				79E7AA411B3F8DFF00416595 /* TestsTests */,
@@ -133,6 +150,7 @@
 				79E7AA211B3F8DFF00416595 /* Sources */,
 				79E7AA221B3F8DFF00416595 /* Frameworks */,
 				79E7AA231B3F8DFF00416595 /* Resources */,
+				7901F0591BC8AE6000FD8915 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,11 +185,12 @@
 		79E7AA1D1B3F8DFF00416595 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Benjamin Wishart";
 				TargetAttributes = {
 					79E7AA241B3F8DFF00416595 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 5B745E2Q5N;
 					};
 					79E7AA3D1B3F8DFF00416595 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -288,6 +307,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -353,13 +373,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BoardGameFramework-glbzrouhdzebbdagkvtlgizdagae/Build/Products/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WiseartGames.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -367,13 +392,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BoardGameFramework-glbzrouhdzebbdagkvtlgizdagae/Build/Products/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WiseartGames.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -391,6 +421,7 @@
 				);
 				INFOPLIST_FILE = TestsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WiseartGames.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tests.app/Tests";
 			};
@@ -406,6 +437,7 @@
 				);
 				INFOPLIST_FILE = TestsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WiseartGames.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tests.app/Tests";
 			};
@@ -430,6 +462,7 @@
 				79E7AA4A1B3F8DFF00416595 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		79E7AA4B1B3F8DFF00416595 /* Build configuration list for PBXNativeTarget "TestsTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +471,7 @@
 				79E7AA4D1B3F8DFF00416595 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
