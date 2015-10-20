@@ -10,6 +10,9 @@
 
 @implementation CardView
 
+//the way cardview should work is it should create a draggable copy of itself rather than allow itself to be dragged.
+//This will work when pulling the view out of a subview.
+
 +(UIImage *)cardBackImage
 {
     static UIImage *back;
@@ -19,13 +22,5 @@
     }
     return back;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

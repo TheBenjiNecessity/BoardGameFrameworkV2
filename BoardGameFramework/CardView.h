@@ -13,11 +13,9 @@
 {
     UIImage *cardFront;
     UIImageView *cardImageView;
+    UITapGestureRecognizer *tapGestureRecognizer;
 }
 
 +(UIImage *)cardBackImage;
-
-
-//-(void)setCardTo
 
 @end
