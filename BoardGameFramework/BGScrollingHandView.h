@@ -8,6 +8,14 @@
 
 #import <BoardGameFramework/BoardGameFramework.h>
 
+#import "BGHandView.h"
+
 @interface BGScrollingHandView : UIScrollView <BGHandView, UIGestureRecognizerDelegate>
+
+@property (nonatomic) CGFloat cardMargin;
+
+@property (nonatomic) SlotViewCollectionView *collectionView;
+
+- (void)initialize;
 
 @end

@@ -10,36 +10,40 @@
 
 @implementation BGScrollingHandView
 @synthesize cardViews;
+@synthesize cardSize, cardMargin;
 
-- (id)initWithFrame:(CGRect)frame pagingEnabled:(BOOL)pagingEnabled
-{
-    if (self = [super initWithFrame:frame])
-    {
-        self.pagingEnabled = pagingEnabled;
-        self.showsHorizontalScrollIndicator = NO;
-        self.showsVerticalScrollIndicator = NO;
-        self.canCancelContentTouches = NO;
-        cardViews = [[NSMutableArray alloc] initWithCapacity:self.subviews.count];
-        
-        [self addCardView:[[CardView alloc] init]];
-        
-        
-        [self refreshHand];
+- (id)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self initialize];
     }
     
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        [self initialize];
+    }
+    return self;
+}
+
+- (void)initialize {
+    self.showsHorizontalScrollIndicator = NO;
+    self.showsVerticalScrollIndicator = NO;
+    self.canCancelContentTouches = NO;
+    cardViews = [[NSMutableArray alloc] init];
+    [self setClipsToBounds:YES];
+}
+
 - (void)addCardView:(CardView *)cardView {
-    cardView.willDragAfterLongPress = YES;
     [cardView.panGestureRecognizer setDelegate:self];
     [cardView.longPressRecognizer setDelegate:self];
     [self.panGestureRecognizer requireGestureRecognizerToFail:cardView.panGestureRecognizer];
     if (cardView.longPressRecognizer) {
-        [self.panGestureRecognizer requireGestureRecognizerToFail:cardView.longPressRecognizer];
+        //[self.panGestureRecognizer requireGestureRecognizerToFail:cardView.longPressRecognizer];
+        [cardView setWillDrag:NO];
     }
     [cardViews addObject:cardView];
-    
 }
 
 - (void)removeCardViewAtIndex:(int)index {
@@ -51,15 +55,10 @@
 }
 
 - (void)refreshHand {
-    CGFloat cardWidth = 90.0;
-    CGFloat cardHeight = 140.0;
-    CGFloat cardMargin = 10.0;
-    NSUInteger numberOfCards = [cardViews count];
-    
-    self.contentSize = CGSizeMake((cardWidth + cardMargin) * numberOfCards + cardMargin, self.frame.size.height);
-    
+    [self setContentSize:CGSizeMake((cardSize.width + cardMargin) * [cardViews count] + cardMargin, self.frame.size.height)];
+
     [cardViews enumerateObjectsUsingBlock:^(CardView * _Nonnull cardView, NSUInteger i, BOOL * _Nonnull stop) {
-        cardView.frame = CGRectMake(cardMargin + (i * cardMargin) + (i * cardWidth), (self.frame.size.height / 2) - (cardHeight / 2), cardWidth, cardHeight);
+        cardView.frame = CGRectMake(cardMargin + (i * cardMargin) + (i * cardSize.width), (self.frame.size.height / 2) - (cardSize.height / 2), cardSize.width, cardSize.height);
         cardView.backgroundColor = [UIColor whiteColor];
         [self addSubview:cardView];
     }];

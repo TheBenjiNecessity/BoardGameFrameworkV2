@@ -14,17 +14,35 @@
 
 @implementation ViewController
 @synthesize card;
+@synthesize handview;
 
 - (void)viewDidLoad {
    [super viewDidLoad];
    // Do any additional setup after loading the view, typically from a nib.
    [card setDelegate:self];
-    card.willDragAfterLongPress = NO;
-    BGHandView *handView = [[BGHandView alloc] initWithFrame:CGRectMake(10.0, 400.0, 90.0 * 5 + 10, 170.0) pagingEnabled:NO];
-    handView.backgroundColor = [UIColor darkGrayColor];
-    handView.center = CGPointMake(self.view.frame.size.height - (handView.frame.size.height + 10), self.view.center.y);
-    [self.view addSubview:handView];
-
+    [card setWillLongPress:NO];
+    
+    CardView *cardView = [[CardView alloc] init];
+    cardView.layer.borderWidth = 1.0;
+    cardView.layer.borderColor = [UIColor blackColor].CGColor;
+    [cardView setWillLongPress:YES];
+    [cardView setWillDrag:NO];
+    [cardView initialize];
+    
+    [handview setPagingEnabled:YES];
+    [handview setCardMargin:10.0];
+    [handview setCardSize:CGSizeMake(90.0, 140.0)];
+    [handview addCardView:cardView];
+    [handview addCardView:[[CardView alloc] init]];
+    [handview addCardView:[[CardView alloc] init]];
+    [handview addCardView:[[CardView alloc] init]];
+    [handview addCardView:[[CardView alloc] init]];
+    [handview addCardView:[[CardView alloc] init]];
+    [handview addCardView:[[CardView alloc] init]];
+    [handview addCardView:[[CardView alloc] init]];
+    [handview addCardView:[[CardView alloc] init]];
+    [handview addCardView:[[CardView alloc] init]];
+    [handview refreshHand];
 }
 
 - (void)didReceiveMemoryWarning {

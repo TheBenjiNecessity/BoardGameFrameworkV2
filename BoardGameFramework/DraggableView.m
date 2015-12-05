@@ -1,4 +1,4 @@
-//
+ //
 //  DraggableView.m
 //  BoardGameFramework
 //
@@ -11,72 +11,47 @@
 @implementation DraggableView
 @synthesize staysWithinSuperView;
 @synthesize lockX, lockY;
-@synthesize willDragAfterLongPress;
+@synthesize willLongPress, willDrag;
 @synthesize panGestureRecognizer;
 @synthesize longPressRecognizer;
+@synthesize expandsOnTouch;
 
--(id)initWithCoder:(NSCoder *)aDecoder
-{
-    if (self = [super initWithCoder:aDecoder])
-    {
-        self.userInteractionEnabled = YES;
-        panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(cardIsBeingDraggedWithPanGestureRecognizer:)];
-        panGestureRecognizer.cancelsTouchesInView = NO;
-        [self addGestureRecognizer:panGestureRecognizer];
-        [panGestureRecognizer setDelegate:self];
-        if (willDragAfterLongPress) {
-            longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(cardIsBeingLongPressedWithLongPressGestureRecognizer:)];
-            [longPressRecognizer setMinimumPressDuration:1.0];
-            longPressRecognizer.cancelsTouchesInView = NO;
-            [self addGestureRecognizer:longPressRecognizer];
-            [longPressRecognizer setDelegate:self];
-        }
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        [self initialize];
     }
 
    return self;
 }
 
--(id)initWithFrame:(CGRect)frame
-{
-    if (self = [super initWithFrame:frame])
-    {
-        self.userInteractionEnabled = YES;
-        panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(cardIsBeingDraggedWithPanGestureRecognizer:)];
-        panGestureRecognizer.cancelsTouchesInView = NO;
-        [self addGestureRecognizer:panGestureRecognizer];
-        [panGestureRecognizer setDelegate:self];
-        if (willDragAfterLongPress) {
-            longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(cardIsBeingLongPressedWithLongPressGestureRecognizer:)];
-            [longPressRecognizer setMinimumPressDuration:1.0];
-            longPressRecognizer.cancelsTouchesInView = NO;
-            [self addGestureRecognizer:longPressRecognizer];
-            [longPressRecognizer setDelegate:self];
-        }
+-(id)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self initialize];
     }
     
     return self;
 }
 
-- (void)setWillDrag:(BOOL)willDrag {
-   self.userInteractionEnabled = willDrag;
-}
-
-- (BOOL)willDrag {
-   return self.userInteractionEnabled;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-    return YES;
+- (void)initialize {
+    self.userInteractionEnabled = YES;
+    panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(cardIsBeingDraggedWithPanGestureRecognizer:)];
+    panGestureRecognizer.cancelsTouchesInView = NO;
+    [self addGestureRecognizer:panGestureRecognizer];
+    
+    longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(cardIsBeingLongPressedWithLongPressGestureRecognizer:)];
+    [longPressRecognizer setMinimumPressDuration:1.0];
+    longPressRecognizer.cancelsTouchesInView = NO;
+    longPressRecognizer.enabled = YES;
+    [self addGestureRecognizer:longPressRecognizer];
 }
 
 -(void)cardIsBeingLongPressedWithLongPressGestureRecognizer: (UILongPressGestureRecognizer *)sender {
     longPressRecognizer.enabled = NO;
-    NSLog(@"longpress");
+    willDrag = YES;
 }
 
 -(void)cardIsBeingDraggedWithPanGestureRecognizer: (UIPanGestureRecognizer *)sender {
-    NSLog(@"pan");
-    if (!willDragAfterLongPress || !longPressRecognizer.enabled) {
+    if (willDrag) {
         if (sender.state == UIGestureRecognizerStateBegan) {
           [self.delegate view:self didStartDraggingWithGestureRecognizer:sender];
         }
@@ -102,22 +77,10 @@
             [self.delegate view:self isDraggingWithGestureRecognizer:sender];
         }
 
-        if (sender.state == UIGestureRecognizerStateEnded)
-        {
+        if (sender.state == UIGestureRecognizerStateEnded) {
             [self.delegate view:self didEndDraggingWithGestureRecognizer:sender];
-            if (willDragAfterLongPress) {
-                longPressRecognizer.enabled = YES;
-            }
         }
     }
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

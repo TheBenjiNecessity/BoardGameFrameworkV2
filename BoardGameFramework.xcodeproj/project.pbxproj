@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		793175491BCDF7C400023CD6 /* BGScrollingHandView.h in Headers */ = {isa = PBXBuildFile; fileRef = 793175471BCDF7C400023CD6 /* BGScrollingHandView.h */; settings = {ASSET_TAGS = (); }; };
+		793175491BCDF7C400023CD6 /* BGScrollingHandView.h in Headers */ = {isa = PBXBuildFile; fileRef = 793175471BCDF7C400023CD6 /* BGScrollingHandView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7931754A1BCDF7C400023CD6 /* BGScrollingHandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 793175481BCDF7C400023CD6 /* BGScrollingHandView.m */; settings = {ASSET_TAGS = (); }; };
-		7931754D1BCDF99000023CD6 /* BGFannedHandView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7931754B1BCDF99000023CD6 /* BGFannedHandView.h */; settings = {ASSET_TAGS = (); }; };
+		7931754D1BCDF99000023CD6 /* BGFannedHandView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7931754B1BCDF99000023CD6 /* BGFannedHandView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7931754E1BCDF99000023CD6 /* BGFannedHandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7931754C1BCDF99000023CD6 /* BGFannedHandView.m */; settings = {ASSET_TAGS = (); }; };
 		794CDA101B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h in Headers */ = {isa = PBXBuildFile; fileRef = 794CDA0E1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h */; };
 		794CDA111B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CDA0F1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m */; };
@@ -278,15 +278,15 @@
 				79E7AA161B3F760B00416595 /* QuadTree.h in Headers */,
 				79E7A9FB1B3F760B00416595 /* BGReward.h in Headers */,
 				79E7AA041B3F760B00416595 /* CardView.h in Headers */,
-				7931754D1BCDF99000023CD6 /* BGFannedHandView.h in Headers */,
 				79E7A9F61B3F760B00416595 /* BGPiece.h in Headers */,
 				79E7A9EF1B3F760B00416595 /* BGBoardView.h in Headers */,
 				79E7A9FD1B3F760B00416595 /* BGTrade.h in Headers */,
 				79E7AA011B3F760B00416595 /* BoardGameLibrary.h in Headers */,
 				795017C21BC871DD00E24C2C /* BGHandView.h in Headers */,
 				79E7AA121B3F760B00416595 /* NumberView.h in Headers */,
-				793175491BCDF7C400023CD6 /* BGScrollingHandView.h in Headers */,
 				79E7A9F11B3F760B00416595 /* BGCollection.h in Headers */,
+				7931754D1BCDF99000023CD6 /* BGFannedHandView.h in Headers */,
+				793175491BCDF7C400023CD6 /* BGScrollingHandView.h in Headers */,
 				794CDA101B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h in Headers */,
 				79E7A9F51B3F760B00416595 /* BGItem.h in Headers */,
 				79E7AA141B3F760B00416595 /* Player.h in Headers */,

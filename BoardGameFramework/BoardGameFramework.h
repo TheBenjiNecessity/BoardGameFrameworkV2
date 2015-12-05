@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DraggableView.h"
 #import "SlotViewCollectionView.h"
-#import "BGHandView.h"
+#import "BGScrollingHandView.h"
 
 //! Project version number for BoardGameFramework.
 FOUNDATION_EXPORT double BoardGameFrameworkVersionNumber;

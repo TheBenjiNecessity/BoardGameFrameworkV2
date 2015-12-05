@@ -12,6 +12,7 @@
 @interface ViewController : UIViewController <DraggableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet DraggableView *card;
+@property (weak, nonatomic) IBOutlet BGScrollingHandView *handview;
 
 @end
 

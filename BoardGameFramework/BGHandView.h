@@ -12,14 +12,16 @@
 @protocol BGHandView <NSObject>
 
 @property (nonatomic) NSMutableArray *cardViews;
-@property (nonatomic) CGFloat *cardHeight;
+@property (nonatomic) CGSize cardSize;
 
-- (id)initWithFrame:(CGRect)frame pagingEnabled:(BOOL)pagingEnabled;
+- (id)initWithFrame:(CGRect)frame;
 
 - (void)addCardView:(CardView *)cardView;
 
 - (void)removeCardViewAtIndex:(int)index;
 
 - (void)removeCardView:(CardView *)cardView;
+
+- (void)refreshHand;
 
 @end
