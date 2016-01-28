@@ -7,6 +7,14 @@
 //
 
 #import "BGHandView.h"
+#import "SlotViewCollectionView.h"
+
+@interface BGHandView ()
+{
+    SlotViewCollectionView *slotViewCollectionView;
+}
+
+@end
 
 @implementation BGHandView
 @synthesize cardViewPanGestureRecognizer;
@@ -18,6 +26,14 @@
                                                                            action:@selector(cardIsDraggingWithPanGesture:)];
     [cardViewPanGestureRecognizer setDelegate:self];
     [self addGestureRecognizer:cardViewPanGestureRecognizer];
+}
+
+- (void)didMoveToSuperview {
+    slotViewCollectionView = (SlotViewCollectionView *)self.superview;
+    
+    if (!slotViewCollectionView) {
+        [NSException raise:@"Invalid parent view" format:@"Hand view must be a child of a SlotViewCollectionView"];
+    }
 }
 
 - (void)addCardView:(CardView *)cardView {
@@ -60,7 +76,6 @@
                                                                       cardViewOriginInHandView.y,
                                                                       cardView.frame.size.width,
                                                                       cardView.frame.size.height)];
-        NSLog(@"%@", NSStringFromCGRect(draggingCardView.frame));
         
         [draggingCardView.panGestureRecognizer setEnabled:NO];
         

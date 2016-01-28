@@ -7,14 +7,6 @@
 //
 
 #import "BGScrollingHandView.h"
-#import "SlotViewCollectionView.h"
-
-@interface BGScrollingHandView ()
-{
-    SlotViewCollectionView *slotViewCollectionView;
-}
-
-@end
 
 @implementation BGScrollingHandView
 @synthesize cardSize, cardMargin;
@@ -33,6 +25,7 @@
     if (self = [super initWithCoder:aDecoder]) {
         [self initialize];
     }
+    
     return self;
 }
 
@@ -50,14 +43,6 @@
     [self addGestureRecognizer:longPressGestureRecognizer];
     
     [self addSubview:scrollView];
-}
-
-- (void)didMoveToSuperview {
-    slotViewCollectionView = (SlotViewCollectionView *)self.superview;
-    
-    if (!slotViewCollectionView) {
-        [NSException raise:@"Invalid parent view" format:@"Hand view must be a child of a SlotViewCollectionView"];
-    }
 }
 
 - (void)addCardView:(CardView *)cardView {
