@@ -19,22 +19,18 @@
 
 @end
 
-@interface DraggableView : UIView
+@interface DraggableView : UIView <UIGestureRecognizerDelegate>
 
 @property (nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
-@property (nonatomic) UILongPressGestureRecognizer *longPressRecognizer;
 
 @property (nonatomic) BOOL willDrag;
 @property (nonatomic) BOOL lockX;
 @property (nonatomic) BOOL lockY;
 @property (nonatomic) BOOL staysWithinSuperView;
-@property (nonatomic) BOOL willLongPress;
 @property (nonatomic) BOOL createsDraggableCopy;
 @property (nonatomic) BOOL expandsOnTouch;
 @property (nonatomic, strong) id<DraggableViewDelegate>  delegate;
 
--(id)initWithCoder:(NSCoder *)aDecoder;
-
-- (void)initialize;
+- (void)initializePanGestureRecognizer;
 
 @end

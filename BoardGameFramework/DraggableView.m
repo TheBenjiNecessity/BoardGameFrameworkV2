@@ -11,76 +11,70 @@
 @implementation DraggableView
 @synthesize staysWithinSuperView;
 @synthesize lockX, lockY;
-@synthesize willLongPress, willDrag;
 @synthesize panGestureRecognizer;
-@synthesize longPressRecognizer;
 @synthesize expandsOnTouch;
+@synthesize willDrag;
 
--(id)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super initWithCoder:aDecoder]) {
-        [self initialize];
-    }
-
-   return self;
-}
-
--(id)initWithFrame:(CGRect)frame {
+- (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        [self initialize];
+        [self initializePanGestureRecognizer];
     }
-    
     return self;
 }
 
-- (void)initialize {
-    self.userInteractionEnabled = YES;
-    panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(cardIsBeingDraggedWithPanGestureRecognizer:)];
-    panGestureRecognizer.cancelsTouchesInView = NO;
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        [self initializePanGestureRecognizer];
+    }
+    return self;
+}
+
+- (void)initializePanGestureRecognizer {
+    panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
+                                                                   action:@selector(cardDraggedWithRecognizer:)];
     [self addGestureRecognizer:panGestureRecognizer];
+}
+
+- (void)cardDraggedWithRecognizer: (UIPanGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        if ([self.delegate respondsToSelector:@selector(view:didStartDraggingWithGestureRecognizer:)]) {
+            [self.delegate view:self didStartDraggingWithGestureRecognizer:sender];
+        }
+    }
+   
+    CGPoint translationPoint = [sender translationInView:self.superview];
+    CGFloat x = lockX ? sender.view.center.x : sender.view.center.x + translationPoint.x;
+    CGFloat y = lockY ? sender.view.center.y : sender.view.center.y + translationPoint.y;
+    CGPoint newCenterPoint = CGPointMake(x, y);
+    CGFloat halfViewWidth = self.frame.size.width / 2;
+    CGFloat halfViewHeight = self.frame.size.height / 2;
+
+    if ((staysWithinSuperView
+        && CGRectContainsPoint(self.superview.frame, CGPointMake(newCenterPoint.x, newCenterPoint.y + halfViewHeight))
+        && CGRectContainsPoint(self.superview.frame, CGPointMake(newCenterPoint.x, newCenterPoint.y - halfViewHeight))
+        && CGRectContainsPoint(self.superview.frame, CGPointMake(newCenterPoint.x + halfViewWidth, newCenterPoint.y))
+        && CGRectContainsPoint(self.superview.frame, CGPointMake(newCenterPoint.x - halfViewWidth, newCenterPoint.y)))
+        || !staysWithinSuperView) {
+        sender.view.center = newCenterPoint;
+        [sender setTranslation:CGPointZero inView:self.superview];
+    }
+
     
-    longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(cardIsBeingLongPressedWithLongPressGestureRecognizer:)];
-    [longPressRecognizer setMinimumPressDuration:1.0];
-    longPressRecognizer.cancelsTouchesInView = NO;
-    longPressRecognizer.enabled = YES;
-    [self addGestureRecognizer:longPressRecognizer];
-}
+    if ([self.delegate respondsToSelector:@selector(view:isDraggingWithGestureRecognizer:)]) {
+        [self.delegate view:self isDraggingWithGestureRecognizer:sender];
+    }
 
--(void)cardIsBeingLongPressedWithLongPressGestureRecognizer: (UILongPressGestureRecognizer *)sender {
-    longPressRecognizer.enabled = NO;
-    willDrag = YES;
-}
-
--(void)cardIsBeingDraggedWithPanGestureRecognizer: (UIPanGestureRecognizer *)sender {
-    if (willDrag) {
-        if (sender.state == UIGestureRecognizerStateBegan) {
-          [self.delegate view:self didStartDraggingWithGestureRecognizer:sender];
-        }
-       
-        CGPoint translationPoint = [sender translationInView:self.superview];
-        CGFloat x = lockX ? sender.view.center.x : sender.view.center.x + translationPoint.x;
-        CGFloat y = lockY ? sender.view.center.y : sender.view.center.y + translationPoint.y;
-        CGPoint newCenterPoint = CGPointMake(x, y);
-        CGFloat halfViewWidth = self.frame.size.width / 2;
-        CGFloat halfViewHeight = self.frame.size.height / 2;
-
-        if ((staysWithinSuperView
-            && CGRectContainsPoint(self.superview.frame, CGPointMake(newCenterPoint.x, newCenterPoint.y + halfViewHeight))
-            && CGRectContainsPoint(self.superview.frame, CGPointMake(newCenterPoint.x, newCenterPoint.y - halfViewHeight))
-            && CGRectContainsPoint(self.superview.frame, CGPointMake(newCenterPoint.x + halfViewWidth, newCenterPoint.y))
-            && CGRectContainsPoint(self.superview.frame, CGPointMake(newCenterPoint.x - halfViewWidth, newCenterPoint.y))) || !staysWithinSuperView) {
-            sender.view.center = newCenterPoint;
-            [sender setTranslation:CGPointZero inView:self.superview];
-        }
-
-        
-        if ([self.delegate respondsToSelector:@selector(view:isDraggingWithGestureRecognizer:)]) {
-            [self.delegate view:self isDraggingWithGestureRecognizer:sender];
-        }
-
-        if (sender.state == UIGestureRecognizerStateEnded) {
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        if ([self.delegate respondsToSelector:@selector(view:didEndDraggingWithGestureRecognizer:)]) {
             [self.delegate view:self didEndDraggingWithGestureRecognizer:sender];
         }
     }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    NSLog(@"drag yes");
+    return YES;
 }
 
 @end

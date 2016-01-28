@@ -8,6 +8,6 @@
 
 #import <BoardGameFramework/BoardGameFramework.h>
 
-@interface BGFannedHandView : UIView <BGHandView>
+@interface BGFannedHandView : BGHandView
 
 @end

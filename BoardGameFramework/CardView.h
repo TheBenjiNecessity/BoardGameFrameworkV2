@@ -18,4 +18,9 @@
 
 +(UIImage *)cardBackImage;
 
+- (void)resetRotation;
+
+- (void)rotateAroundBottomCenterByDegrees:(CGFloat)degrees;
+- (void)rotateAroundBottomCenterByRadians:(CGFloat) radians;
+
 @end

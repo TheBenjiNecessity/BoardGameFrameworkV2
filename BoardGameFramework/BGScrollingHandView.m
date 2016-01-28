@@ -7,10 +7,19 @@
 //
 
 #import "BGScrollingHandView.h"
+#import "SlotViewCollectionView.h"
+
+@interface BGScrollingHandView ()
+{
+    SlotViewCollectionView *slotViewCollectionView;
+}
+
+@end
 
 @implementation BGScrollingHandView
-@synthesize cardViews;
 @synthesize cardSize, cardMargin;
+@synthesize longPressGestureRecognizer;
+@synthesize scrollView;
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -28,44 +37,68 @@
 }
 
 - (void)initialize {
-    self.showsHorizontalScrollIndicator = NO;
-    self.showsVerticalScrollIndicator = NO;
-    self.canCancelContentTouches = NO;
-    cardViews = [[NSMutableArray alloc] init];
-    [self setClipsToBounds:YES];
+    [super initialize];
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
+    [scrollView setClipsToBounds:YES];
+    
+    longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                                               action:@selector(viewDidLongPress:)];
+    [longPressGestureRecognizer setDelegate:self];
+    [self addGestureRecognizer:longPressGestureRecognizer];
+    
+    [self addSubview:scrollView];
+}
+
+- (void)didMoveToSuperview {
+    slotViewCollectionView = (SlotViewCollectionView *)self.superview;
+    
+    if (!slotViewCollectionView) {
+        [NSException raise:@"Invalid parent view" format:@"Hand view must be a child of a SlotViewCollectionView"];
+    }
 }
 
 - (void)addCardView:(CardView *)cardView {
-    [cardView.panGestureRecognizer setDelegate:self];
-    [cardView.longPressRecognizer setDelegate:self];
-    [self.panGestureRecognizer requireGestureRecognizerToFail:cardView.panGestureRecognizer];
-    if (cardView.longPressRecognizer) {
-        //[self.panGestureRecognizer requireGestureRecognizerToFail:cardView.longPressRecognizer];
-        [cardView setWillDrag:NO];
-    }
-    [cardViews addObject:cardView];
-}
-
-- (void)removeCardViewAtIndex:(int)index {
-    [cardViews removeObjectAtIndex:index];
-}
-
-- (void)removeCardView:(CardView *)cardView {
-    [cardViews removeObject:cardView];
+    [cardView.panGestureRecognizer setEnabled:NO];
+    [super addCardView:cardView];
+    
 }
 
 - (void)refreshHand {
-    [self setContentSize:CGSizeMake((cardSize.width + cardMargin) * [cardViews count] + cardMargin, self.frame.size.height)];
+    [scrollView setContentSize:CGSizeMake((cardSize.width + cardMargin) * [cardViews count] + cardMargin,
+                                          scrollView.frame.size.height)];
 
     [cardViews enumerateObjectsUsingBlock:^(CardView * _Nonnull cardView, NSUInteger i, BOOL * _Nonnull stop) {
-        cardView.frame = CGRectMake(cardMargin + (i * cardMargin) + (i * cardSize.width), (self.frame.size.height / 2) - (cardSize.height / 2), cardSize.width, cardSize.height);
+        cardView.frame = CGRectMake(cardMargin + (i * cardMargin) + (i * cardSize.width), (scrollView.frame.size.height / 2) - (cardSize.height / 2), cardSize.width, cardSize.height);
         cardView.backgroundColor = [UIColor whiteColor];
-        [self addSubview:cardView];
+        [scrollView addSubview:cardView];
     }];
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    return YES;
+- (void)cardIsDraggingWithPanGesture:(UIPanGestureRecognizer *)gestureRecognizer {
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        if (draggingCardView) {
+            [scrollView.panGestureRecognizer setEnabled:NO];
+        }
+    }
+    
+    [super cardIsDraggingWithPanGesture:gestureRecognizer];
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        if (draggingCardView) {
+            [scrollView.panGestureRecognizer setEnabled:YES];
+        }
+
+        //TODO figure out if card is able to be planted
+        //the slot should send a message (delegate?)
+        
+        draggingCardView = nil;
+    }
+
 }
+
+
 
 @end

@@ -10,12 +10,10 @@
 
 #import "BGHandView.h"
 
-@interface BGScrollingHandView : UIScrollView <BGHandView, UIGestureRecognizerDelegate>
+@interface BGScrollingHandView : BGHandView
 
 @property (nonatomic) CGFloat cardMargin;
-
-@property (nonatomic) SlotViewCollectionView *collectionView;
-
-- (void)initialize;
+@property (nonatomic) UIScrollView *scrollView;
+@property (nonatomic) UILongPressGestureRecognizer *longPressGestureRecognizer;
 
 @end
