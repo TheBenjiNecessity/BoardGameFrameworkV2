@@ -26,7 +26,6 @@
 
 - (BOOL)hasNodes;
 - (BOOL)hasObjects;
-- (void)testPoint: (CGPoint)point;
 - (void)printTree:(NSString *)indent last:(BOOL)last;
 - (void)insertSlotView:(SlotView *)slotView;
 - (void)clear;

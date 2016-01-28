@@ -182,12 +182,7 @@
    return objects;
 }
 
-- (void)testPoint: (CGPoint)point {
-   NSArray *array = [NSArray arrayWithArray:[self objects:nil atPoint:point]];
-}
-
 - (void)printTree:(NSString *)indent last:(BOOL)last {
-   printf([indent UTF8String]);
    if (last)
    {
       printf("\\-");
