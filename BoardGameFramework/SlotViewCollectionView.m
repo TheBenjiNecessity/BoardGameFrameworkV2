@@ -83,4 +83,20 @@ BGIndices BGIndicesMake(int row, int column)
     return BGIndicesMake(row, column);
 }
 
++ (NSArray *)arrayOfAllSlotViewCollectionViewsAsDescendantsOfView:(UIView *)view {
+    if ([view.subviews count] == 0) {
+        if ([view isKindOfClass:[SlotViewCollectionView class]]) {
+            return [NSArray arrayWithObject:view];
+        } else {
+            return nil;
+        }
+    } else {
+        NSMutableArray *resultingArray = [[NSMutableArray alloc] init];
+        for (UIView *subview in view.subviews) {
+            [resultingArray addObjectsFromArray:[self arrayOfAllSlotViewCollectionViewsAsDescendantsOfView:subview]];
+        }
+        return resultingArray;
+    }
+}
+
 @end

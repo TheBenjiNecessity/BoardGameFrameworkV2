@@ -20,5 +20,6 @@
 
 - (void)insertSlotView:(SlotView *)slotView;
 - (SlotView *)slotViewAtPoint:(CGPoint)point;
++ (NSArray *)arrayOfAllSlotViewCollectionViewsAsDescendantsOfView:(UIView *)view;
 
 @end
