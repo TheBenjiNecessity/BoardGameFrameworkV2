@@ -74,8 +74,6 @@
                 draggingCardView.center = originalCenter;
             } completion:^(BOOL finished) {
                 [selectedCardView setHidden:NO];
-                [draggingCardView setHidden:YES];
-                NSLog(@"draggingCardView %@", draggingCardView.description);
                 [draggingCardView removeFromSuperview];
             }];
         }
