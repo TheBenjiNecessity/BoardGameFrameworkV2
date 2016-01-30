@@ -29,14 +29,15 @@
    }
 }
 
-- (void)slotViewIsHighlighted:(BOOL)highlighted {
-   if (highlighted) {
-      self.layer.borderColor = [UIColor redColor].CGColor;
-      self.layer.borderWidth = 1.0;
-   } else {
-      self.layer.borderColor = [UIColor clearColor].CGColor;
-      self.layer.borderWidth = 0.0;
-   }
+- (void)setHighlighted:(BOOL)highlighted {
+    _highlighted = highlighted;
+    if (highlighted) {
+        self.layer.borderColor = [UIColor redColor].CGColor;
+        self.layer.borderWidth = 1.0;
+    } else {
+        self.layer.borderColor = [UIColor clearColor].CGColor;
+        self.layer.borderWidth = 0.0;
+    }
 }
 
 @end

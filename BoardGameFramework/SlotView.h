@@ -10,6 +10,6 @@
 
 @interface SlotView : UIView
 
-- (void)slotViewIsHighlighted: (BOOL)highlighted;
+@property (nonatomic) BOOL highlighted;
 
 @end

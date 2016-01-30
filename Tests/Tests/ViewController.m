@@ -75,7 +75,7 @@
         CGPoint newCenterPoint = CGPointMake(x, y);
         
         SlotView *currentSlotView = [svcv slotViewAtPoint:newCenterPoint];
-        [currentSlotView slotViewIsHighlighted:YES];
+        [currentSlotView setHighlighted:YES];
     } else {
         
     }
