@@ -15,13 +15,16 @@
 
 #import <UIKit/UIKit.h>
 #import "CardView.h"
+#import "SlotView.h"
 
 #define MIN_LONG_PRESS_DURATION         1.0
 
 @interface BGHandView : UIView <UIGestureRecognizerDelegate>
 {
+    SlotView *currentSlotView;
     CardView *draggingCardView;
     NSMutableArray *cardViews;
+    BOOL isDragging;
 }
 
 @property (nonatomic) CGSize cardSize;

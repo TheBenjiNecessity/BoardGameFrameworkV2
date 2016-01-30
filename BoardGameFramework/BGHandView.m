@@ -12,6 +12,8 @@
 @interface BGHandView ()
 {
     SlotViewCollectionView *slotViewCollectionView;
+    CGPoint originalCenter;
+    CardView *selectedCardView;
 }
 
 @end
@@ -58,31 +60,59 @@
     
     [draggingCardView setCenter:newCenterPoint];
     [gestureRecognizer setTranslation:CGPointZero inView:self];
+    
+    [currentSlotView setHighlighted:NO];
+    
+    currentSlotView = [slotViewCollectionView slotViewAtPoint:draggingCardView.frame.origin];
+    
+    [currentSlotView setHighlighted:YES];
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        isDragging = NO;
+        if (!currentSlotView) {//TODO this also needs to worry about if moving a card to this slotView is legal
+            [UIView animateWithDuration:0.25 animations:^{
+                draggingCardView.center = originalCenter;
+            } completion:^(BOOL finished) {
+                [selectedCardView setHidden:NO];
+                [draggingCardView setHidden:YES];
+                NSLog(@"draggingCardView %@", draggingCardView.description);
+                [draggingCardView removeFromSuperview];
+            }];
+        }
+    }
 }
 
 - (void)viewDidLongPress:(UILongPressGestureRecognizer*)gestureRecognizer {
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-        CardView *cardView = (CardView *)[self hitTest:[gestureRecognizer locationInView:self] withEvent:nil];
+        UIView *selectedView = [self hitTest:[gestureRecognizer locationInView:self] withEvent:nil];
         
-        CGPoint cardViewOriginInHandView = [cardView convertPoint:cardView.frame.origin toView:self.superview];
-        
-        cardViewOriginInHandView.x -= cardView.frame.origin.x;
-        cardViewOriginInHandView.y -= cardView.frame.origin.y;
-        
-        [cardView removeFromSuperview];
-        [cardView setHidden:YES];
-        
-        draggingCardView = [[CardView alloc] initWithFrame:CGRectMake(cardViewOriginInHandView.x,
-                                                                      cardViewOriginInHandView.y,
-                                                                      cardView.frame.size.width,
-                                                                      cardView.frame.size.height)];
-        
-        [draggingCardView.panGestureRecognizer setEnabled:NO];
-        
-#warning take this out
-        [draggingCardView.layer setBackgroundColor:[UIColor blueColor].CGColor];
-        
-        [self.superview addSubview:draggingCardView];
+        if ([selectedView isKindOfClass:[CardView class]]) {
+            selectedCardView = (CardView *)selectedView;
+            
+            CGPoint cardViewOriginInHandView = [selectedCardView convertPoint:selectedCardView.frame.origin
+                                                                       toView:self.superview];
+            
+            cardViewOriginInHandView.x -= selectedCardView.frame.origin.x;
+            cardViewOriginInHandView.y -= selectedCardView.frame.origin.y;
+            
+            [selectedCardView setHidden:YES];
+            
+            draggingCardView = [[CardView alloc] initWithFrame:CGRectMake(cardViewOriginInHandView.x,
+                                                                          cardViewOriginInHandView.y,
+                                                                          selectedCardView.frame.size.width,
+                                                                          selectedCardView.frame.size.height)];
+            
+            isDragging = YES;
+            
+            originalCenter = [self convertPoint:selectedCardView.center toView:slotViewCollectionView];
+            
+            [draggingCardView.panGestureRecognizer setEnabled:NO];
+            
+    #warning take this out
+            [draggingCardView.layer setBackgroundColor:[UIColor blueColor].CGColor];
+            
+            [self.superview addSubview:draggingCardView];
+        }
     }
 }
 

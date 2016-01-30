@@ -65,7 +65,7 @@
 
 - (void)cardIsDraggingWithPanGesture:(UIPanGestureRecognizer *)gestureRecognizer {
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-        if (draggingCardView) {
+        if (isDragging) {
             [scrollView.panGestureRecognizer setEnabled:NO];
         }
     }
@@ -73,14 +73,9 @@
     [super cardIsDraggingWithPanGesture:gestureRecognizer];
     
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
-        if (draggingCardView) {
+        if (!isDragging) {
             [scrollView.panGestureRecognizer setEnabled:YES];
         }
-
-        //TODO figure out if card is able to be planted
-        //the slot should send a message (delegate?)
-        
-        draggingCardView = nil;
     }
 
 }
