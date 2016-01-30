@@ -9,8 +9,6 @@
 #import <BoardGameFramework/BoardGameFramework.h>
 #import "BGHandView.h"
 
-#define LONG_PRESS_MIN_PRESS_DURATION           0.25
-
 @interface BGScrollingHandView : BGHandView
 
 @property (nonatomic) CGFloat cardMargin;

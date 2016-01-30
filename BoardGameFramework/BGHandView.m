@@ -70,7 +70,7 @@
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
         isDragging = NO;
         if (!currentSlotView) {//TODO this also needs to worry about if moving a card to this slotView is legal
-            [UIView animateWithDuration:0.25 animations:^{
+            [UIView animateWithDuration:SNAP_BACK_ANIMATION_DURATION animations:^{
                 draggingCardView.center = originalCenter;
             } completion:^(BOOL finished) {
                 [selectedCardView setHidden:NO];

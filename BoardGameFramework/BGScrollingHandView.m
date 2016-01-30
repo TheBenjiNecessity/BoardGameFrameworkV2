@@ -41,7 +41,7 @@
                                                                                action:@selector(viewDidLongPress:)];
     [longPressGestureRecognizer setDelegate:self];
     [self addGestureRecognizer:longPressGestureRecognizer];
-    [longPressGestureRecognizer setMinimumPressDuration:LONG_PRESS_MIN_PRESS_DURATION];
+    [longPressGestureRecognizer setMinimumPressDuration:MIN_LONG_PRESS_DURATION];
     
     [self addSubview:scrollView];
 }

@@ -17,7 +17,8 @@
 #import "CardView.h"
 #import "SlotView.h"
 
-#define MIN_LONG_PRESS_DURATION         1.0
+#define MIN_LONG_PRESS_DURATION         0.25
+#define SNAP_BACK_ANIMATION_DURATION    0.25
 
 @interface BGHandView : UIView <UIGestureRecognizerDelegate>
 {
