@@ -35,6 +35,17 @@
     [self addGestureRecognizer:panGestureRecognizer];
 }
 
+- (void)setIsHighlighted:(BOOL)isHighlighted {
+    _isHighlighted = isHighlighted;
+    
+    if (_isHighlighted) {
+        [self.layer setBackgroundColor:[UIColor blueColor].CGColor];
+    } else {
+        //TODO this should be the previous style which is unknown
+        [self.layer setBackgroundColor:[UIColor whiteColor].CGColor];
+    }
+}
+
 - (void)cardDraggedWithRecognizer: (UIPanGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
         if ([self.delegate respondsToSelector:@selector(view:didStartDraggingWithGestureRecognizer:)]) {

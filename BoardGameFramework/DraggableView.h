@@ -29,6 +29,8 @@
 @property (nonatomic) BOOL staysWithinSuperView;
 @property (nonatomic) BOOL createsDraggableCopy;
 @property (nonatomic) BOOL expandsOnTouch;
+@property (nonatomic) BOOL isHighlighted;
+
 @property (nonatomic, strong) id<DraggableViewDelegate>  delegate;
 
 - (void)initializePanGestureRecognizer;
