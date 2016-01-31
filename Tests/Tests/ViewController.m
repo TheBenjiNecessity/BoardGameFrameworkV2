@@ -24,7 +24,7 @@
     cardView.layer.borderColor = [UIColor blackColor].CGColor;
     
     //[handview setPagingEnabled:YES];
-    [handview.scrollView setPagingEnabled:YES];
+    [handview setPagingEnabled:YES];
     [handview setCardMargin:10.0];
     [handview setCardSize:CGSizeMake(90.0, 140.0)];
     [handview addCardView:cardView];

@@ -8,10 +8,16 @@
 
 #import "BGScrollingHandView.h"
 
+@interface BGScrollingHandView ()
+{
+    UIScrollView *scrollView;
+}
+
+@end
+
 @implementation BGScrollingHandView
 @synthesize cardSize, cardMargin;
 @synthesize longPressGestureRecognizer;
-@synthesize scrollView;
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -46,10 +52,13 @@
     [self addSubview:scrollView];
 }
 
+- (void)setPagingEnabled:(BOOL)enabled {
+    [scrollView setPagingEnabled:enabled];
+}
+
 - (void)addCardView:(CardView *)cardView {
     [cardView.panGestureRecognizer setEnabled:NO];
     [super addCardView:cardView];
-    
 }
 
 - (void)refreshHand {

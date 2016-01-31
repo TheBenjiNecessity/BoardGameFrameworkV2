@@ -12,7 +12,8 @@
 @interface BGScrollingHandView : BGHandView
 
 @property (nonatomic) CGFloat cardMargin;
-@property (nonatomic) UIScrollView *scrollView;
 @property (nonatomic) UILongPressGestureRecognizer *longPressGestureRecognizer;
+
+- (void)setPagingEnabled:(BOOL)enabled;
 
 @end
