@@ -57,10 +57,20 @@
                                           scrollView.frame.size.height)];
 
     [cardViews enumerateObjectsUsingBlock:^(CardView * _Nonnull cardView, NSUInteger i, BOOL * _Nonnull stop) {
-        cardView.frame = CGRectMake(cardMargin + (i * cardMargin) + (i * cardSize.width), (scrollView.frame.size.height / 2) - (cardSize.height / 2), cardSize.width, cardSize.height);
+        cardView.frame = CGRectMake(cardMargin + (i * cardMargin) + (i * cardSize.width),
+                                    (scrollView.frame.size.height / 2) - (cardSize.height / 2),
+                                    cardSize.width,
+                                    cardSize.height);
         cardView.backgroundColor = [UIColor whiteColor];
         [scrollView addSubview:cardView];
     }];
+}
+
+- (void)setOriginalCenter {
+    CGPoint centerOffset = CGPointMake(selectedCardView.center.x - scrollView.contentOffset.x,
+                                       selectedCardView.center.y - scrollView.contentOffset.y);
+    
+    originalCenter = [self convertPoint:centerOffset toView:slotViewCollectionView];
 }
 
 - (void)cardIsDraggingWithPanGesture:(UIPanGestureRecognizer *)gestureRecognizer {

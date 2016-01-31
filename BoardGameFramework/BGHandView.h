@@ -16,6 +16,7 @@
 #import <UIKit/UIKit.h>
 #import "CardView.h"
 #import "SlotView.h"
+#import "SlotViewCollectionView.h"
 
 #define MIN_LONG_PRESS_DURATION         0.25
 #define SNAP_BACK_ANIMATION_DURATION    0.25
@@ -26,6 +27,9 @@
     CardView *draggingCardView;
     NSMutableArray *cardViews;
     BOOL isDragging;
+    CGPoint originalCenter;
+    CardView *selectedCardView;
+    SlotViewCollectionView *slotViewCollectionView;
 }
 
 @property (nonatomic) CGSize cardSize;
@@ -44,5 +48,7 @@
 - (void)cardIsDraggingWithPanGesture:(UIPanGestureRecognizer *)gestureRecognizer;
 
 - (void)viewDidLongPress:(UILongPressGestureRecognizer*)gestureRecognizer;
+
+- (void)setOriginalCenter;
 
 @end

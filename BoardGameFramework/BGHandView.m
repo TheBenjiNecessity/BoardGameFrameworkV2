@@ -7,16 +7,6 @@
 //
 
 #import "BGHandView.h"
-#import "SlotViewCollectionView.h"
-
-@interface BGHandView ()
-{
-    SlotViewCollectionView *slotViewCollectionView;
-    CGPoint originalCenter;
-    CardView *selectedCardView;
-}
-
-@end
 
 @implementation BGHandView
 @synthesize cardViewPanGestureRecognizer;
@@ -51,6 +41,7 @@
 }
 
 - (void)refreshHand{}
+- (void)setOriginalCenter{}
 
 - (void)cardIsDraggingWithPanGesture:(UIPanGestureRecognizer *)gestureRecognizer {
     CGPoint translationPoint = [gestureRecognizer translationInView:self];
@@ -102,12 +93,11 @@
             
             isDragging = YES;
             
-            originalCenter = [self convertPoint:selectedCardView.center toView:slotViewCollectionView];
+            [self setOriginalCenter];
+            
+            [draggingCardView setIsHighlighted:YES];
             
             [draggingCardView.panGestureRecognizer setEnabled:NO];
-            
-    #warning take this out
-            [draggingCardView.layer setBackgroundColor:[UIColor blueColor].CGColor];
             
             [self.superview addSubview:draggingCardView];
         }
