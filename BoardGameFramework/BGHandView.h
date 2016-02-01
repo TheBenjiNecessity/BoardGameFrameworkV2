@@ -6,13 +6,6 @@
 //  Copyright © 2015 Benjamin Wishart. All rights reserved.
 //
 
-/*
- pangesture dragging of cardviews should happen inside of the handview rather than the cardviews themselves
- makes things easier/less memory
- 
- a hand view should always be attached to or contained in a slotviewcollectionview
- */
-
 #import <UIKit/UIKit.h>
 #import "CardView.h"
 #import "SlotView.h"

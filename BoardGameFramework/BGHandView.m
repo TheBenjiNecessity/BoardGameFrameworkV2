@@ -21,6 +21,7 @@
 }
 
 - (void)didMoveToSuperview {
+    //TODO does a bghandview need to be inside of a slotviewcollectionview? Just make it attached to one.
     slotViewCollectionView = (SlotViewCollectionView *)self.superview;
     
     if (!slotViewCollectionView) {
