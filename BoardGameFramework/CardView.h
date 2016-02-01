@@ -10,17 +10,11 @@
 #import "DraggableView.h"
 
 @interface CardView : DraggableView
-{
-    UIImage *cardFront;
-    UIImageView *cardImageView;
-    UITapGestureRecognizer *tapGestureRecognizer;
-}
 
-+(UIImage *)cardBackImage;
+@property (nonatomic) UIImage *cardFrontImage;
 
-- (void)resetRotation;
-
-- (void)rotateAroundBottomCenterByDegrees:(CGFloat)degrees;
-- (void)rotateAroundBottomCenterByRadians:(CGFloat) radians;
++ (UIImage *)cardBackImage;
+- (void)showBack;
+- (void)showFront;
 
 @end

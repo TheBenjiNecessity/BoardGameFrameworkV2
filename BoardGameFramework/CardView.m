@@ -9,37 +9,60 @@
 #import "CardView.h"
 #import "UIView+Rotation.h"
 
-@implementation CardView
+@interface CardView () {
+    UIImageView *cardDisplayImageView;
+}
 
-//the way cardview should work is it should create a draggable copy of itself rather than allow itself to be dragged.
-//This will work when pulling the view out of a subview.
+@end
+
+@implementation CardView
+@synthesize cardFrontImage;
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        [self initialize];
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self initialize];
+    }
+    return self;
+}
+
+- (void)initialize {
+    cardDisplayImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0,
+                                                                         0.0,
+                                                                         self.frame.size.width,
+                                                                         self.frame.size.height)];
+    [self addSubview:cardDisplayImageView];
+    
+    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                       action:@selector(cardIsTapped:)]];
+}
 
 +(UIImage *)cardBackImage
 {
     static UIImage *back;
     if (back == nil)
     {
-        
+        back = [UIImage imageNamed:@"cardBack"];
     }
     return back;
 }
 
-- (void)resetRotation {
-    self.transform = CGAffineTransformIdentity;
+- (void)showBack {
+    [cardDisplayImageView setImage:[CardView cardBackImage]];
 }
 
-- (void)rotateAroundBottomCenterByDegrees:(CGFloat)degrees {
-    CGFloat radians = ConvertDegreesToRadians(degrees);
-    [self rotateAroundBottomCenterByRadians:radians];
+- (void)showFront {
+    [cardDisplayImageView setImage:cardFrontImage];
 }
 
-- (void)rotateAroundBottomCenterByRadians:(CGFloat)radians {
-    [[self layer] setAnchorPoint:CGPointMake(0.5, 1.0)];
-    
-    CGAffineTransform transform = CGAffineTransformMakeTranslation(0.0, self.frame.size.height / 2);
-    transform = CGAffineTransformRotate(transform, radians);
-    
-    self.transform = transform;
+- (void)cardIsTapped:(UITapGestureRecognizer*)sender {
+
 }
 
 @end

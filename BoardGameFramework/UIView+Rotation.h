@@ -13,4 +13,9 @@
 CGFloat ConvertDegreesToRadians(CGFloat degrees);
 CGFloat ConvertRadiansToDegrees(CGFloat radians);
 
+- (void)resetRotation;
+
+- (void)rotateAroundBottomCenterByDegrees:(CGFloat)degrees;
+- (void)rotateAroundBottomCenterByRadians:(CGFloat)radians;
+
 @end
