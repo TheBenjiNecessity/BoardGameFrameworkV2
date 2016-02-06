@@ -9,8 +9,15 @@
 #import "BGDeckView.h"
 #import "CardView.h"
 
+@interface BGDeckView () {
+    UIImageView *cardDisplayImageView;
+}
+
+@end
+
 @implementation BGDeckView
 @synthesize drawPointCenter;
+@synthesize delegate;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
@@ -28,17 +35,32 @@
 
 - (void)initialize {
     [self setDrawPointCenter:self.center];
+    cardDisplayImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0,
+                                                                         0.0,
+                                                                         self.frame.size.width,
+                                                                         self.frame.size.height)];
+    [self addSubview:cardDisplayImageView];
+    [cardDisplayImageView setImage:[CardView cardBackImage]];
 }
 
 - (void)dealToPoint:(CGPoint)dealPoint {
     CardView *dealtCard = [[CardView alloc] initWithFrame:self.frame];
-    [dealtCard setCardFrontImage:[CardView cardBackImage]];
+    [dealtCard showBack];
+    
     dealtCard.center = drawPointCenter;
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [self.superview addSubview:dealtCard];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        [dealtCard rotateSide:TOP toFacePoint:dealPoint];
+    }];
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        [dealtCard rotateSide:TOP toFacePoint:dealPoint];
         dealtCard.center = dealPoint;
     } completion:^(BOOL finished) {
-        
+        [dealtCard removeFromSuperview];
+        [delegate cardView:dealtCard wasDealtToPoint:dealPoint];
     }];
 }
 
