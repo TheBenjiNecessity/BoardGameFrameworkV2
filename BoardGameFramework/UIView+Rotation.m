@@ -18,22 +18,12 @@ CGFloat ConvertRadiansToDegrees(CGFloat radians) {
     return radians * 180 / M_PI;
 }
 
-- (void)resetRotation {
-    self.transform = CGAffineTransformIdentity;
+- (CGFloat) rotationOfViewInRadians {
+    return atan2f(self.transform.b, self.transform.a);
 }
 
-- (void)rotateAroundBottomCenterByDegrees:(CGFloat)degrees {
-    CGFloat radians = ConvertDegreesToRadians(degrees);
-    [self rotateAroundBottomCenterByRadians:radians];
-}
-
-- (void)rotateAroundBottomCenterByRadians:(CGFloat)radians {
-    [[self layer] setAnchorPoint:CGPointMake(0.5, 1.0)];
-    
-    CGAffineTransform transform = CGAffineTransformMakeTranslation(0.0, self.frame.size.height / 2);
-    transform = CGAffineTransformRotate(transform, radians);
-    
-    self.transform = transform;
+- (CGFloat) rotationOfViewInDegrees {
+    return [self rotationOfViewInRadians] * (180 / M_PI);
 }
 
 @end
