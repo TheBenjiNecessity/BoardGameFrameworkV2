@@ -14,6 +14,7 @@
 
 @implementation ViewController
 @synthesize handview;
+@synthesize deckView;
 
 - (void)viewDidLoad {
    [super viewDidLoad];
@@ -47,10 +48,23 @@
     [rotatingCardView.layer setBorderColor:[UIColor blackColor].CGColor];
     [rotatingCardView.layer setBorderWidth:1.0];
     
-    [rotatingCardView rotateAroundBottomCenterByDegrees:30.0];
+    //[rotatingCardView rotateAroundBottomCenterByDegrees:-30.0];
+    
+    CGPoint testPoint = CGPointMake(500, 500);
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(testPoint.x, testPoint.y, 10, 10)];
+    [view setBackgroundColor:[UIColor blackColor]];
+    [self.view addSubview:view];
+    
+    [rotatingCardView showBack];
+    [rotatingCardView rotateSide:LEFT toFacePoint:testPoint];
     
     [self.view addSubview:nonRotatingCardView];
     [self.view addSubview:rotatingCardView];
+}
+
+- (IBAction)dealCard:(UIButton *)sender {
+    [deckView dealToPoint:CGPointMake(-100.0, -100.0)];
 }
 
 - (void)didReceiveMemoryWarning {
