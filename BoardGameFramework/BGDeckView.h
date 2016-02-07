@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BGView.h"
 
 @class CardView;
 @class BGDeckView;
@@ -17,7 +18,7 @@
 
 @end
 
-@interface BGDeckView : UIView
+@interface BGDeckView : BGView
 
 /**
  *  The point at which new cards are dealt from i.e. where cards animate from. This is initialized to be the center

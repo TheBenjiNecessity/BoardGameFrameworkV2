@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BGView.h"
 
 @class DraggableView;
 @protocol DraggableViewDelegate <NSObject>
@@ -19,7 +20,7 @@
 
 @end
 
-@interface DraggableView : UIView <UIGestureRecognizerDelegate>
+@interface DraggableView : BGView <UIGestureRecognizerDelegate>
 
 @property (nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
 
@@ -32,7 +33,5 @@
 @property (nonatomic) BOOL isHighlighted;
 
 @property (nonatomic, strong) id<DraggableViewDelegate>  delegate;
-
-- (void)initializePanGestureRecognizer;
 
 @end

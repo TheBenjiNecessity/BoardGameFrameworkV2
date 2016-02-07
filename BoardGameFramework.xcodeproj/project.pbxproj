@@ -20,6 +20,8 @@
 		795E85601C5EAC6500E4D96F /* BGDeckView.m in Sources */ = {isa = PBXBuildFile; fileRef = 795E855E1C5EAC6500E4D96F /* BGDeckView.m */; };
 		798D74311C65A0E50083E6CC /* UIView+Distance.h in Headers */ = {isa = PBXBuildFile; fileRef = 798D742F1C65A0E50083E6CC /* UIView+Distance.h */; };
 		798D74321C65A0E50083E6CC /* UIView+Distance.m in Sources */ = {isa = PBXBuildFile; fileRef = 798D74301C65A0E50083E6CC /* UIView+Distance.m */; };
+		79D983161C670F8200D9B38C /* BGView.h in Headers */ = {isa = PBXBuildFile; fileRef = 79D983141C670F8200D9B38C /* BGView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79D983171C670F8200D9B38C /* BGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D983151C670F8200D9B38C /* BGView.m */; };
 		79E7A9AC1B3E29FF00416595 /* BoardGameFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 79E7A9AB1B3E29FF00416595 /* BoardGameFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79E7A9B21B3E2A0000416595 /* BoardGameFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E7A9A61B3E29FF00416595 /* BoardGameFramework.framework */; };
 		79E7A9B91B3E2A0000416595 /* BoardGameFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E7A9B81B3E2A0000416595 /* BoardGameFrameworkTests.m */; };
@@ -95,6 +97,8 @@
 		795E855E1C5EAC6500E4D96F /* BGDeckView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGDeckView.m; sourceTree = "<group>"; };
 		798D742F1C65A0E50083E6CC /* UIView+Distance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Distance.h"; sourceTree = "<group>"; };
 		798D74301C65A0E50083E6CC /* UIView+Distance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Distance.m"; sourceTree = "<group>"; };
+		79D983141C670F8200D9B38C /* BGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGView.h; sourceTree = "<group>"; };
+		79D983151C670F8200D9B38C /* BGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGView.m; sourceTree = "<group>"; };
 		79E7A9A61B3E29FF00416595 /* BoardGameFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoardGameFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E7A9AA1B3E29FF00416595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79E7A9AB1B3E29FF00416595 /* BoardGameFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardGameFramework.h; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 				793175481BCDF7C400023CD6 /* BGScrollingHandView.m */,
 				7931754B1BCDF99000023CD6 /* BGFannedHandView.h */,
 				7931754C1BCDF99000023CD6 /* BGFannedHandView.m */,
+				79D983141C670F8200D9B38C /* BGView.h */,
+				79D983151C670F8200D9B38C /* BGView.m */,
 				795E855D1C5EAC6500E4D96F /* BGDeckView.h */,
 				795E855E1C5EAC6500E4D96F /* BGDeckView.m */,
 				79E7A9E11B3F760B00416595 /* Hexagon.h */,
@@ -314,6 +320,7 @@
 				79E7A9F51B3F760B00416595 /* BGItem.h in Headers */,
 				795E855F1C5EAC6500E4D96F /* BGDeckView.h in Headers */,
 				79E7AA141B3F760B00416595 /* Player.h in Headers */,
+				79D983161C670F8200D9B38C /* BGView.h in Headers */,
 				79E7A9FF1B3F760B00416595 /* Board.h in Headers */,
 				79E7A9F91B3F760B00416595 /* BGRequirement.h in Headers */,
 				79E7AA541B4491AB00416595 /* SlotViewCollectionView.h in Headers */,
@@ -420,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79F885C81C5702ED00EE5B83 /* BGHandView.m in Sources */,
+				79D983171C670F8200D9B38C /* BGView.m in Sources */,
 				79E7AA1B1B3F760B00416595 /* SlotView.m in Sources */,
 				79E7AA0B1B3F760B00416595 /* DraggableView.m in Sources */,
 				798D74321C65A0E50083E6CC /* UIView+Distance.m in Sources */,

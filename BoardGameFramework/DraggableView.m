@@ -15,21 +15,7 @@
 @synthesize expandsOnTouch;
 @synthesize willDrag;
 
-- (id)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        [self initializePanGestureRecognizer];
-    }
-    return self;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super initWithCoder:aDecoder]) {
-        [self initializePanGestureRecognizer];
-    }
-    return self;
-}
-
-- (void)initializePanGestureRecognizer {
+- (void)initialize {
     panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                    action:@selector(cardDraggedWithRecognizer:)];
     [self addGestureRecognizer:panGestureRecognizer];

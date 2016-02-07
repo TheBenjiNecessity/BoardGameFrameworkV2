@@ -10,11 +10,12 @@
 #import "CardView.h"
 #import "SlotView.h"
 #import "SlotViewCollectionView.h"
+#import "BGView.h"
 
 #define MIN_LONG_PRESS_DURATION         0.25
 #define SNAP_BACK_ANIMATION_DURATION    0.25
 
-@interface BGHandView : UIView <UIGestureRecognizerDelegate>
+@interface BGHandView : BGView <UIGestureRecognizerDelegate>
 {
     SlotView *currentSlotView;
     CardView *draggingCardView;
