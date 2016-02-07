@@ -59,7 +59,8 @@
     [rotatingCardView showBack];
     [rotatingCardView rotateSide:LEFT toFacePoint:testPoint];
     
-    Deck *deck = [[Deck alloc] initWithJSONFile:[NSData dataWithContentsOfFile:@"cards.json"]];
+    NSData *jsondata = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cards" ofType:@"json"]];
+    Deck *deck = [[Deck alloc] initWithJSONFile:jsondata];
     
     [self.view addSubview:nonRotatingCardView];
     [self.view addSubview:rotatingCardView];

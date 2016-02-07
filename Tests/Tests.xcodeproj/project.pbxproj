@@ -11,6 +11,7 @@
 		7901F0581BC8AE6000FD8915 /* BoardGameFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7901F0561BC8AE6000FD8915 /* BoardGameFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		798D742E1C659DA00083E6CC /* cardBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 798D742D1C659DA00083E6CC /* cardBack.png */; };
 		798D74341C65A6870083E6CC /* cardBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 798D74331C65A6870083E6CC /* cardBack.png */; };
+		79D983191C67130500D9B38C /* cards.json in Resources */ = {isa = PBXBuildFile; fileRef = 79D983181C67130500D9B38C /* cards.json */; };
 		79E7AA2B1B3F8DFF00416595 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E7AA2A1B3F8DFF00416595 /* main.m */; };
 		79E7AA2E1B3F8DFF00416595 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E7AA2D1B3F8DFF00416595 /* AppDelegate.m */; };
 		79E7AA311B3F8DFF00416595 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E7AA301B3F8DFF00416595 /* ViewController.m */; };
@@ -48,6 +49,7 @@
 		7901F0561BC8AE6000FD8915 /* BoardGameFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = BoardGameFramework.framework; path = "/Users/benjaminwishart/Library/Developer/Xcode/DerivedData/BoardGameWorkspace-dkfffpfxikhdzzgaosncrmiopzwp/Build/Products/Debug-iphoneos/BoardGameFramework.framework"; sourceTree = "<absolute>"; };
 		798D742D1C659DA00083E6CC /* cardBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cardBack.png; path = /Users/benjaminwishart/Documents/Development/BoardGameFramework/BoardGameFramework/../../../../Desktop/cardBack.png; sourceTree = "<absolute>"; };
 		798D74331C65A6870083E6CC /* cardBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cardBack.png; path = ../../../../../Desktop/cardBack.png; sourceTree = "<group>"; };
+		79D983181C67130500D9B38C /* cards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cards.json; sourceTree = "<group>"; };
 		79E7AA251B3F8DFF00416595 /* Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E7AA291B3F8DFF00416595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79E7AA2A1B3F8DFF00416595 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				79E7AA2D1B3F8DFF00416595 /* AppDelegate.m */,
 				79E7AA2F1B3F8DFF00416595 /* ViewController.h */,
 				79E7AA301B3F8DFF00416595 /* ViewController.m */,
+				79D983181C67130500D9B38C /* cards.json */,
 				79E7AA321B3F8DFF00416595 /* Main.storyboard */,
 				79E7AA351B3F8DFF00416595 /* Images.xcassets */,
 				79E7AA371B3F8DFF00416595 /* LaunchScreen.xib */,
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79E7AA341B3F8DFF00416595 /* Main.storyboard in Resources */,
+				79D983191C67130500D9B38C /* cards.json in Resources */,
 				79E7AA391B3F8DFF00416595 /* LaunchScreen.xib in Resources */,
 				798D742E1C659DA00083E6CC /* cardBack.png in Resources */,
 				79E7AA361B3F8DFF00416595 /* Images.xcassets in Resources */,
