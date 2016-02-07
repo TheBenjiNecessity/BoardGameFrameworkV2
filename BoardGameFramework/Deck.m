@@ -32,7 +32,9 @@
         
         if (error)
         {
-            @throw [NSException exceptionWithName:NSGenericException reason:@"The JSON in the file provided is either malformed or the file could not be opened." userInfo:nil];
+            @throw [NSException exceptionWithName:NSGenericException
+                                           reason:@"The JSON in the file provided is either malformed or the file could not be opened."
+                                         userInfo:nil];
         }
         else
         {
@@ -42,7 +44,9 @@
             }
             else
             {
-                @throw [NSException exceptionWithName:NSGenericException reason:@"Could not parse JSON from file provided." userInfo:nil];
+                @throw [NSException exceptionWithName:NSGenericException
+                                               reason:@"Could not parse JSON from file provided."
+                                             userInfo:nil];
             }
         }
     }
