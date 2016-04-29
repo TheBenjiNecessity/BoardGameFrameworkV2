@@ -15,16 +15,16 @@
     NSDictionary *cardInfoFromJSONFile;
 }
 
--(id)init;
+- (id)initWithJSONFile: (NSData *)JSONFile;
 
--(id)initWithJSONFile: (NSData *)JSONFile;
+- (Card *)draw;
 
--(Card *)draw;
+- (BOOL)addCard: (Card *)card;
 
--(BOOL)addCard: (Card *)card;
+- (BOOL)isEmpty;
 
--(BOOL)isEmpty;
+- (void)shuffle;
 
--(void)shuffle;
+- (void)print;
 
 @end
