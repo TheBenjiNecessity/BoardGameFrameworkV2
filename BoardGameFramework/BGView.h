@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum side
+{
+    TOP, RIGHT, BOTTOM, LEFT
+} Side;
+
 @interface BGView : UIView
 
 - (void)initialize;
