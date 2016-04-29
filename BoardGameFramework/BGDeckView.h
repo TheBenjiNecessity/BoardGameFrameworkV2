@@ -35,4 +35,12 @@
  */
 - (void)dealToPoint:(CGPoint)dealPoint;
 
+/**
+ *  Animates a cardView from drawPointCenter to the given dealPoint
+ *  First animates the card to face a particular point
+ *
+ *  @param dealPoint : the end point to which a cardView will animate
+ */
+- (void)dealToPoint:(CGPoint)dealPoint withSide:(Side)side facingPoint:(CGPoint)facingPoint;
+
 @end

@@ -30,6 +30,10 @@
 }
 
 - (void)dealToPoint:(CGPoint)dealPoint {
+    [self dealToPoint:dealPoint withSide:TOP facingPoint:dealPoint];
+}
+
+- (void)dealToPoint:(CGPoint)dealPoint withSide:(Side)side facingPoint:(CGPoint)facingPoint {
     CardView *dealtCard = [[CardView alloc] initWithFrame:self.frame];
     [dealtCard showBack];
     
@@ -38,11 +42,11 @@
     [self.superview addSubview:dealtCard];
     
     [UIView animateWithDuration:0.2 animations:^{
-        [dealtCard rotateSide:TOP toFacePoint:dealPoint];
+        [dealtCard rotateSide:side toFacePoint:facingPoint];
     }];
     
     [UIView animateWithDuration:0.4 animations:^{
-        [dealtCard rotateSide:TOP toFacePoint:dealPoint];
+        [dealtCard rotateSide:side toFacePoint:facingPoint];
         dealtCard.center = dealPoint;
     } completion:^(BOOL finished) {
         [dealtCard removeFromSuperview];
