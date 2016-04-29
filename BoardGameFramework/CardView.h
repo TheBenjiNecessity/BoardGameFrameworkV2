@@ -9,11 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "DraggableView.h"
 
-typedef enum side
-{
-    TOP, RIGHT, BOTTOM, LEFT
-} Side;
-
 @interface CardView : DraggableView
 
 @property (nonatomic) UIImage *cardFrontImage;
