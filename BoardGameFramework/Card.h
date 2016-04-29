@@ -26,7 +26,9 @@
 @property (nonatomic, readonly) BOOL shouldBeUnique;
 @property (nonatomic) NSUInteger *identifier;
 
--(id)initWithDisplayTitle: (NSString *)title
+- (id)initWithDictionary:(NSDictionary *)dictionary;
+
+- (id)initWithDisplayTitle: (NSString *)title
               description: (NSString *)description;
 
 /*

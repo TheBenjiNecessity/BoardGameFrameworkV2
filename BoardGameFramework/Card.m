@@ -12,6 +12,14 @@
 @synthesize displayTitle;
 @synthesize displayDescription;
 
+- (id)initWithDictionary:(NSDictionary *)dictionary {
+    if (self = [super init]) {
+        displayTitle = [dictionary objectForKey:@"title"];
+        displayDescription = [dictionary objectForKey:@"description"];
+    }
+    return self;
+}
+
 -(id)initWithDisplayTitle:(NSString *)title
               description:(NSString *)description
 {
