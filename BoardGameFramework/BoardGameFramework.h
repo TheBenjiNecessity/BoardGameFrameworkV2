@@ -12,6 +12,7 @@
 #import "BGScrollingHandView.h"
 #import "BGDeckView.h"
 #import "Deck.h"
+#import "BGSpriteSheet.h"
 
 //! Project version number for BoardGameFramework.
 FOUNDATION_EXPORT double BoardGameFrameworkVersionNumber;

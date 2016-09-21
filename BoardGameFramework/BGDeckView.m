@@ -33,8 +33,18 @@
     [self dealToPoint:dealPoint withSide:TOP facingPoint:dealPoint];
 }
 
+- (void)dealToPoint:(CGPoint)dealPoint fromPoint:(CGPoint)fromPoint {
+    
+    [self dealToPoint:dealPoint fromPoint:fromPoint withSide:TOP facingPoint:dealPoint];
+}
+
 - (void)dealToPoint:(CGPoint)dealPoint withSide:(Side)side facingPoint:(CGPoint)facingPoint {
-    CardView *dealtCard = [[CardView alloc] initWithFrame:self.frame];
+    [self dealToPoint:dealPoint fromPoint:self.frame.origin withSide:side facingPoint:facingPoint];
+}
+
+- (void)dealToPoint:(CGPoint)dealPoint fromPoint:(CGPoint)fromPoint withSide:(Side)side facingPoint:(CGPoint)facingPoint {
+    CardView *dealtCard = [[CardView alloc] init];
+    [dealtCard setFrame:CGRectMake(fromPoint.x, fromPoint.y, self.frame.size.width, self.frame.size.height)];
     [dealtCard showBack];
     
     dealtCard.center = drawPointCenter;

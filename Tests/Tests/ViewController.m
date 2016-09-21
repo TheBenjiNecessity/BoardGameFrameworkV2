@@ -54,20 +54,40 @@
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(testPoint.x, testPoint.y, 10, 10)];
     [view setBackgroundColor:[UIColor blackColor]];
-    [self.view addSubview:view];
+    //[self.view addSubview:view];
     
     [rotatingCardView showBack];
     [rotatingCardView rotateSide:LEFT toFacePoint:testPoint];
     
     NSData *jsondata = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cards" ofType:@"json"]];
     Deck *deck = [[Deck alloc] initWithJSONFile:jsondata];
+    [deck print];
     
-    [self.view addSubview:nonRotatingCardView];
-    [self.view addSubview:rotatingCardView];
+    [deckView.layer setBorderColor:[UIColor blackColor].CGColor];
+    [deckView.layer setBorderWidth:1.0];
+    
+//    [self.view addSubview:nonRotatingCardView];
+//    [self.view addSubview:rotatingCardView];
+    
+    CGSize size = CGSizeMake(82, 118);
+    UIImage *spriteSheetImage = [UIImage imageNamed:@"CardSpriteSheet.gif"];
+    BGSpriteSheet *spriteSheet = [[BGSpriteSheet alloc] initWithImage:spriteSheetImage
+                                                               atSize:size];
+    UIImage *image = [spriteSheet imageAtPoint:CGPointMake(0.0, 0.0)];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    [imageView setFrame:CGRectMake(500, 500, size.width, size.height)];
+    [imageView.layer setCornerRadius:5.0];
+    //[self.view addSubview:imageView];
 }
 
 - (IBAction)dealCard:(UIButton *)sender {
-    [deckView dealToPoint:CGPointMake(-100.0, -100.0)];
+    CGPoint dealPoint = CGPointMake(-100.0, -100.0);
+    CGPoint facingPoint = CGPointMake(900.0, 10.0);
+    Side side = LEFT;
+    
+    //[deckView dealToPoint:CGPointMake(-100.0, -100.0)];
+    [deckView dealToPoint:dealPoint withSide:side facingPoint:facingPoint];
 }
 
 - (void)didReceiveMemoryWarning {

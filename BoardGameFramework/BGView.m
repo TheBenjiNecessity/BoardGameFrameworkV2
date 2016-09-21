@@ -10,6 +10,14 @@
 
 @implementation BGView
 
+- (id)init {
+    if (self = [super init]) {
+        [self initialize];
+    }
+    
+    return self;
+}
+
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self initialize];

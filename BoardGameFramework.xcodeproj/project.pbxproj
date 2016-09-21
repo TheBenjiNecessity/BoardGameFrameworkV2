@@ -11,13 +11,19 @@
 		7931754A1BCDF7C400023CD6 /* BGScrollingHandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 793175481BCDF7C400023CD6 /* BGScrollingHandView.m */; };
 		7931754D1BCDF99000023CD6 /* BGFannedHandView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7931754B1BCDF99000023CD6 /* BGFannedHandView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7931754E1BCDF99000023CD6 /* BGFannedHandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7931754C1BCDF99000023CD6 /* BGFannedHandView.m */; };
+		7931B1BF1D46F5BE005C0EE3 /* BGCardDisplayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7931B1BD1D46F5BE005C0EE3 /* BGCardDisplayView.h */; };
+		7931B1C01D46F5BE005C0EE3 /* BGCardDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7931B1BE1D46F5BE005C0EE3 /* BGCardDisplayView.m */; };
 		794CDA101B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h in Headers */ = {isa = PBXBuildFile; fileRef = 794CDA0E1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h */; };
 		794CDA111B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CDA0F1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m */; };
 		795017C21BC871DD00E24C2C /* BGHandView.h in Headers */ = {isa = PBXBuildFile; fileRef = 795017C01BC871DD00E24C2C /* BGHandView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		795A505F1C7898860068E090 /* CardDisplayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 795A505D1C7898860068E090 /* CardDisplayView.h */; };
+		795A50601C7898860068E090 /* CardDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 795A505E1C7898860068E090 /* CardDisplayView.m */; };
 		795A9E2E1C321CF60098819E /* UIView+Rotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 795A9E2C1C321CF60098819E /* UIView+Rotation.h */; };
 		795A9E2F1C321CF60098819E /* UIView+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 795A9E2D1C321CF60098819E /* UIView+Rotation.m */; };
 		795E855F1C5EAC6500E4D96F /* BGDeckView.h in Headers */ = {isa = PBXBuildFile; fileRef = 795E855D1C5EAC6500E4D96F /* BGDeckView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		795E85601C5EAC6500E4D96F /* BGDeckView.m in Sources */ = {isa = PBXBuildFile; fileRef = 795E855E1C5EAC6500E4D96F /* BGDeckView.m */; };
+		7962EC311C6ACF060028BB95 /* BGPlayerSwitcherView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7962EC2F1C6ACF060028BB95 /* BGPlayerSwitcherView.h */; };
+		7962EC321C6ACF060028BB95 /* BGPlayerSwitcherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962EC301C6ACF060028BB95 /* BGPlayerSwitcherView.m */; };
 		798D74311C65A0E50083E6CC /* UIView+Distance.h in Headers */ = {isa = PBXBuildFile; fileRef = 798D742F1C65A0E50083E6CC /* UIView+Distance.h */; };
 		798D74321C65A0E50083E6CC /* UIView+Distance.m in Sources */ = {isa = PBXBuildFile; fileRef = 798D74301C65A0E50083E6CC /* UIView+Distance.m */; };
 		79D983161C670F8200D9B38C /* BGView.h in Headers */ = {isa = PBXBuildFile; fileRef = 79D983141C670F8200D9B38C /* BGView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -70,6 +76,8 @@
 		79E7AA1B1B3F760B00416595 /* SlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E7A9EE1B3F760B00416595 /* SlotView.m */; };
 		79E7AA541B4491AB00416595 /* SlotViewCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 79E7AA521B4491AB00416595 /* SlotViewCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79E7AA551B4491AB00416595 /* SlotViewCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E7AA531B4491AB00416595 /* SlotViewCollectionView.m */; };
+		79EDDEF41CE0279D00DB8B77 /* BGSpriteSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 79EDDEF21CE0279D00DB8B77 /* BGSpriteSheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79EDDEF51CE0279D00DB8B77 /* BGSpriteSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EDDEF31CE0279D00DB8B77 /* BGSpriteSheet.m */; };
 		79F885C81C5702ED00EE5B83 /* BGHandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F885C71C5702ED00EE5B83 /* BGHandView.m */; };
 /* End PBXBuildFile section */
 
@@ -88,13 +96,19 @@
 		793175481BCDF7C400023CD6 /* BGScrollingHandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGScrollingHandView.m; sourceTree = "<group>"; };
 		7931754B1BCDF99000023CD6 /* BGFannedHandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGFannedHandView.h; sourceTree = "<group>"; };
 		7931754C1BCDF99000023CD6 /* BGFannedHandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGFannedHandView.m; sourceTree = "<group>"; };
+		7931B1BD1D46F5BE005C0EE3 /* BGCardDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGCardDisplayView.h; sourceTree = "<group>"; };
+		7931B1BE1D46F5BE005C0EE3 /* BGCardDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGCardDisplayView.m; sourceTree = "<group>"; };
 		794CDA0E1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIView_ViewAtPointDetection.h"; sourceTree = "<group>"; };
 		794CDA0F1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIView_ViewAtPointDetection.m"; sourceTree = "<group>"; };
 		795017C01BC871DD00E24C2C /* BGHandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGHandView.h; sourceTree = "<group>"; };
+		795A505D1C7898860068E090 /* CardDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDisplayView.h; sourceTree = "<group>"; };
+		795A505E1C7898860068E090 /* CardDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDisplayView.m; sourceTree = "<group>"; };
 		795A9E2C1C321CF60098819E /* UIView+Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Rotation.h"; sourceTree = "<group>"; };
 		795A9E2D1C321CF60098819E /* UIView+Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Rotation.m"; sourceTree = "<group>"; };
 		795E855D1C5EAC6500E4D96F /* BGDeckView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGDeckView.h; sourceTree = "<group>"; };
 		795E855E1C5EAC6500E4D96F /* BGDeckView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGDeckView.m; sourceTree = "<group>"; };
+		7962EC2F1C6ACF060028BB95 /* BGPlayerSwitcherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGPlayerSwitcherView.h; sourceTree = "<group>"; };
+		7962EC301C6ACF060028BB95 /* BGPlayerSwitcherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGPlayerSwitcherView.m; sourceTree = "<group>"; };
 		798D742F1C65A0E50083E6CC /* UIView+Distance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Distance.h"; sourceTree = "<group>"; };
 		798D74301C65A0E50083E6CC /* UIView+Distance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Distance.m"; sourceTree = "<group>"; };
 		79D983141C670F8200D9B38C /* BGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGView.h; sourceTree = "<group>"; };
@@ -150,6 +164,8 @@
 		79E7A9EE1B3F760B00416595 /* SlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotView.m; sourceTree = "<group>"; };
 		79E7AA521B4491AB00416595 /* SlotViewCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotViewCollectionView.h; sourceTree = "<group>"; };
 		79E7AA531B4491AB00416595 /* SlotViewCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotViewCollectionView.m; sourceTree = "<group>"; };
+		79EDDEF21CE0279D00DB8B77 /* BGSpriteSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGSpriteSheet.h; sourceTree = "<group>"; };
+		79EDDEF31CE0279D00DB8B77 /* BGSpriteSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGSpriteSheet.m; sourceTree = "<group>"; };
 		79F885C71C5702ED00EE5B83 /* BGHandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGHandView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,69 +209,77 @@
 		79E7A9A81B3E29FF00416595 /* BoardGameFramework */ = {
 			isa = PBXGroup;
 			children = (
-				79E7A9AB1B3E29FF00416595 /* BoardGameFramework.h */,
 				79E7A9C21B3F760B00416595 /* BGBoardView.h */,
 				79E7A9C31B3F760B00416595 /* BGBoardView.m */,
 				79E7A9C41B3F760B00416595 /* BGCollection.h */,
 				79E7A9C51B3F760B00416595 /* BGCollection.m */,
 				79E7A9C61B3F760B00416595 /* BGCost.h */,
 				79E7A9C71B3F760B00416595 /* BGCost.m */,
+				795E855D1C5EAC6500E4D96F /* BGDeckView.h */,
+				795E855E1C5EAC6500E4D96F /* BGDeckView.m */,
+				7931754B1BCDF99000023CD6 /* BGFannedHandView.h */,
+				7931754C1BCDF99000023CD6 /* BGFannedHandView.m */,
+				795017C01BC871DD00E24C2C /* BGHandView.h */,
+				79F885C71C5702ED00EE5B83 /* BGHandView.m */,
 				79E7A9C81B3F760B00416595 /* BGItem.h */,
 				79E7A9C91B3F760B00416595 /* BGPiece.h */,
 				79E7A9CA1B3F760B00416595 /* BGPiece.m */,
 				79E7A9CB1B3F760B00416595 /* BGPlayerItem.h */,
+				7962EC2F1C6ACF060028BB95 /* BGPlayerSwitcherView.h */,
+				7962EC301C6ACF060028BB95 /* BGPlayerSwitcherView.m */,
 				79E7A9CC1B3F760B00416595 /* BGRequirement.h */,
 				79E7A9CD1B3F760B00416595 /* BGRequirement.m */,
 				79E7A9CE1B3F760B00416595 /* BGReward.h */,
 				79E7A9CF1B3F760B00416595 /* BGReward.m */,
+				7931B1BD1D46F5BE005C0EE3 /* BGCardDisplayView.h */,
+				7931B1BE1D46F5BE005C0EE3 /* BGCardDisplayView.m */,
+				793175471BCDF7C400023CD6 /* BGScrollingHandView.h */,
+				793175481BCDF7C400023CD6 /* BGScrollingHandView.m */,
+				79EDDEF21CE0279D00DB8B77 /* BGSpriteSheet.h */,
+				79EDDEF31CE0279D00DB8B77 /* BGSpriteSheet.m */,
 				79E7A9D01B3F760B00416595 /* BGTrade.h */,
 				79E7A9D11B3F760B00416595 /* BGTrade.m */,
+				79D983141C670F8200D9B38C /* BGView.h */,
+				79D983151C670F8200D9B38C /* BGView.m */,
 				79E7A9D21B3F760B00416595 /* Board.h */,
 				79E7A9D31B3F760B00416595 /* Board.m */,
+				79E7A9AB1B3E29FF00416595 /* BoardGameFramework.h */,
 				79E7A9D41B3F760B00416595 /* BoardGameLibrary.h */,
 				79E7A9D51B3F760B00416595 /* Card.h */,
 				79E7A9D61B3F760B00416595 /* Card.m */,
+				795A505D1C7898860068E090 /* CardDisplayView.h */,
+				795A505E1C7898860068E090 /* CardDisplayView.m */,
 				79E7A9D71B3F760B00416595 /* CardView.h */,
 				79E7A9D81B3F760B00416595 /* CardView.m */,
-				795A9E2C1C321CF60098819E /* UIView+Rotation.h */,
-				795A9E2D1C321CF60098819E /* UIView+Rotation.m */,
-				798D742F1C65A0E50083E6CC /* UIView+Distance.h */,
-				798D74301C65A0E50083E6CC /* UIView+Distance.m */,
 				79E7A9D91B3F760B00416595 /* Deck.h */,
 				79E7A9DA1B3F760B00416595 /* Deck.m */,
 				79E7A9DB1B3F760B00416595 /* Dice.h */,
 				79E7A9DC1B3F760B00416595 /* Dice.m */,
 				79E7A9DD1B3F760B00416595 /* DraggableView.h */,
 				79E7A9DE1B3F760B00416595 /* DraggableView.m */,
-				794CDA0E1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h */,
-				794CDA0F1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m */,
 				79E7A9DF1B3F760B00416595 /* Hand.h */,
 				79E7A9E01B3F760B00416595 /* Hand.m */,
-				795017C01BC871DD00E24C2C /* BGHandView.h */,
-				79F885C71C5702ED00EE5B83 /* BGHandView.m */,
-				793175471BCDF7C400023CD6 /* BGScrollingHandView.h */,
-				793175481BCDF7C400023CD6 /* BGScrollingHandView.m */,
-				7931754B1BCDF99000023CD6 /* BGFannedHandView.h */,
-				7931754C1BCDF99000023CD6 /* BGFannedHandView.m */,
-				79D983141C670F8200D9B38C /* BGView.h */,
-				79D983151C670F8200D9B38C /* BGView.m */,
-				795E855D1C5EAC6500E4D96F /* BGDeckView.h */,
-				795E855E1C5EAC6500E4D96F /* BGDeckView.m */,
 				79E7A9E11B3F760B00416595 /* Hexagon.h */,
 				79E7A9E21B3F760B00416595 /* Hexagon.m */,
 				79E7A9E31B3F760B00416595 /* HexagonView.h */,
 				79E7A9E41B3F760B00416595 /* HexagonView.m */,
 				79E7A9E51B3F760B00416595 /* NumberView.h */,
 				79E7A9E61B3F760B00416595 /* NumberView.m */,
-				79E7AA521B4491AB00416595 /* SlotViewCollectionView.h */,
-				79E7AA531B4491AB00416595 /* SlotViewCollectionView.m */,
 				79E7A9E71B3F760B00416595 /* Player.h */,
 				79E7A9E81B3F760B00416595 /* Player.m */,
 				79E7A9E91B3F760B00416595 /* QuadTree.h */,
 				79E7A9EA1B3F760B00416595 /* QuadTree.m */,
 				79E7A9ED1B3F760B00416595 /* SlotView.h */,
 				79E7A9EE1B3F760B00416595 /* SlotView.m */,
+				79E7AA521B4491AB00416595 /* SlotViewCollectionView.h */,
+				79E7AA531B4491AB00416595 /* SlotViewCollectionView.m */,
 				79E7A9A91B3E29FF00416595 /* Supporting Files */,
+				798D742F1C65A0E50083E6CC /* UIView+Distance.h */,
+				798D74301C65A0E50083E6CC /* UIView+Distance.m */,
+				795A9E2C1C321CF60098819E /* UIView+Rotation.h */,
+				795A9E2D1C321CF60098819E /* UIView+Rotation.m */,
+				794CDA0E1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h */,
+				794CDA0F1B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m */,
 			);
 			path = BoardGameFramework;
 			sourceTree = "<group>";
@@ -296,6 +320,7 @@
 				79E7AA061B3F760B00416595 /* Deck.h in Headers */,
 				79E7AA081B3F760B00416595 /* Dice.h in Headers */,
 				795A9E2E1C321CF60098819E /* UIView+Rotation.h in Headers */,
+				7962EC311C6ACF060028BB95 /* BGPlayerSwitcherView.h in Headers */,
 				79E7AA021B3F760B00416595 /* Card.h in Headers */,
 				79E7AA1A1B3F760B00416595 /* SlotView.h in Headers */,
 				79E7AA0E1B3F760B00416595 /* Hexagon.h in Headers */,
@@ -307,6 +332,7 @@
 				79E7A9FB1B3F760B00416595 /* BGReward.h in Headers */,
 				79E7AA041B3F760B00416595 /* CardView.h in Headers */,
 				79E7A9F61B3F760B00416595 /* BGPiece.h in Headers */,
+				7931B1BF1D46F5BE005C0EE3 /* BGCardDisplayView.h in Headers */,
 				79E7A9EF1B3F760B00416595 /* BGBoardView.h in Headers */,
 				79E7A9FD1B3F760B00416595 /* BGTrade.h in Headers */,
 				79E7AA011B3F760B00416595 /* BoardGameLibrary.h in Headers */,
@@ -316,9 +342,11 @@
 				7931754D1BCDF99000023CD6 /* BGFannedHandView.h in Headers */,
 				798D74311C65A0E50083E6CC /* UIView+Distance.h in Headers */,
 				793175491BCDF7C400023CD6 /* BGScrollingHandView.h in Headers */,
+				79EDDEF41CE0279D00DB8B77 /* BGSpriteSheet.h in Headers */,
 				794CDA101B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.h in Headers */,
 				79E7A9F51B3F760B00416595 /* BGItem.h in Headers */,
 				795E855F1C5EAC6500E4D96F /* BGDeckView.h in Headers */,
+				795A505F1C7898860068E090 /* CardDisplayView.h in Headers */,
 				79E7AA141B3F760B00416595 /* Player.h in Headers */,
 				79D983161C670F8200D9B38C /* BGView.h in Headers */,
 				79E7A9FF1B3F760B00416595 /* Board.h in Headers */,
@@ -429,6 +457,7 @@
 				79F885C81C5702ED00EE5B83 /* BGHandView.m in Sources */,
 				79D983171C670F8200D9B38C /* BGView.m in Sources */,
 				79E7AA1B1B3F760B00416595 /* SlotView.m in Sources */,
+				79EDDEF51CE0279D00DB8B77 /* BGSpriteSheet.m in Sources */,
 				79E7AA0B1B3F760B00416595 /* DraggableView.m in Sources */,
 				798D74321C65A0E50083E6CC /* UIView+Distance.m in Sources */,
 				79E7A9F21B3F760B00416595 /* BGCollection.m in Sources */,
@@ -443,10 +472,13 @@
 				79E7AA0F1B3F760B00416595 /* Hexagon.m in Sources */,
 				794CDA111B8934FF00691407 /* UIView+UIView_ViewAtPointDetection.m in Sources */,
 				79E7A9FE1B3F760B00416595 /* BGTrade.m in Sources */,
+				795A50601C7898860068E090 /* CardDisplayView.m in Sources */,
+				7962EC321C6ACF060028BB95 /* BGPlayerSwitcherView.m in Sources */,
 				79E7AA131B3F760B00416595 /* NumberView.m in Sources */,
 				79E7AA091B3F760B00416595 /* Dice.m in Sources */,
 				79E7AA0D1B3F760B00416595 /* Hand.m in Sources */,
 				79E7AA031B3F760B00416595 /* Card.m in Sources */,
+				7931B1C01D46F5BE005C0EE3 /* BGCardDisplayView.m in Sources */,
 				79E7A9FA1B3F760B00416595 /* BGRequirement.m in Sources */,
 				79E7AA071B3F760B00416595 /* Deck.m in Sources */,
 				79E7AA111B3F760B00416595 /* HexagonView.m in Sources */,
